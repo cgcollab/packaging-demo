@@ -17,20 +17,20 @@
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
-  name: rediss
+  name: redis
 spec:
   serviceAccountName: default-ns-sa
   packageRef:
-    refName: rediss.corp.com
+    refName: redis.corp.com
     versionSelection:
       constraints: 1.2.3
   values:
     - secretRef:
-        name: rediss-values
+        name: redis-values
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: rediss-values
+  name: redis-values
 stringData:
   values.yml: #@ yaml.encode(collect_values(data.values))
