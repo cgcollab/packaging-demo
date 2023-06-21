@@ -3,12 +3,12 @@ kind: PackageRepository
 metadata:
   annotations:
     kctrl.carvel.dev/repository-version: 1.0.0
-  creationTimestamp: "2023-06-21T20:54:23Z"
+  creationTimestamp: "2023-06-21T21:23:23Z"
   name: app-repo.corp.com
 spec:
   fetch:
     imgpkgBundle:
-      image: gcr.io/fe-ciberkleid/app-repo@sha256:fe6654e23d1038b1fbb874dc7d3c35169093725d9262d6e3e0007751ebdd8b90
+      image: gcr.io/fe-ciberkleid/app-repo@sha256:4edf345750e27566444c3b9e44ad20db45fef71006d3eaf77f6045d7d3e9b571
 status:
   conditions: null
   friendlyDescription: ""
