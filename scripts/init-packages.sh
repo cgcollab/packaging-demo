@@ -19,9 +19,3 @@ kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output
 
 # Release repository (use same version for repo and metapackage)
 kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  # Prompts: app-repo.corp.com,<YOUR REG + "/app-repo">
-
-# Flow to create a new release for existing package:
-#  Change the version in vendir.yaml then run:
-#  kctrl package init -y --chdir packages/$APP-NAME  # or run: vendor sync ...
-#  kctrl package release -y --chdir packages/$APP-NAME --version $APP-VERSION --repo-output ../../repository/1.0.0
-#  kctrl package repository release -y --chdir repository/1.0.0 --version $REPO_VERSION
