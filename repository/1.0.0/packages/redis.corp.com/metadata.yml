@@ -1,0 +1,9 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: redis.corp.com
+spec:
+  displayName: redis
+  longDescription: redis.corp.com
+  shortDescription: redis.corp.com

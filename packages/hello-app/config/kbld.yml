@@ -10,5 +10,5 @@ sources:
 #! publish (push) image
 destinations:
   - image: hello-app
-    newImage: localhost:5001/gitopscon/hello-app
+    newImage: gcr.io/fe-ciberkleid/packaging-demo/hello-app
     tags: [latest]

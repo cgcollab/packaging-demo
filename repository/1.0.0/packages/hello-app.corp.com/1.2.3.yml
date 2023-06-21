@@ -1,0 +1,87 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: hello-app.corp.com.1.2.3
+spec:
+  refName: hello-app.corp.com
+  releasedAt: "2023-06-21T20:46:33Z"
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - imgpkgBundle:
+          image: gcr.io/fe-ciberkleid/packaging-demo/hello-app@sha256:957f47ed2661b4f26e6856db162987acd8f13fda1e3d91ad1a05c507dbd2396d
+      template:
+      - ytt:
+          paths:
+          - config
+      - kbld:
+          paths:
+          - '-'
+          - .imgpkg/images.yml
+  valuesSchema:
+    openAPIv3:
+      additionalProperties: false
+      properties:
+        helloApp:
+          additionalProperties: false
+          properties:
+            cpuLimit:
+              default: 1000m
+              type: string
+            cpuRequest:
+              default: 500m
+              type: string
+            ingress:
+              additionalProperties: false
+              description: Set hostname and domain to null to omit Ingress resource
+              properties:
+                class:
+                  default: null
+                  nullable: true
+                domain:
+                  default: null
+                  nullable: true
+                hostname:
+                  default: null
+                  nullable: true
+                secret:
+                  additionalProperties: false
+                  properties:
+                    certificate:
+                      default: null
+                      nullable: true
+                    privateKey:
+                      default: null
+                      nullable: true
+                  type: object
+              type: object
+            memLimit:
+              default: 256Mi
+              type: string
+            memRequest:
+              default: 128Mi
+              type: string
+            message:
+              default: default
+              description: Name used in hello message from app when app is pinged.
+              type: string
+            name:
+              default: hello-app
+              type: string
+          type: object
+        namespace:
+          additionalProperties: false
+          properties:
+            name:
+              default: hello-app
+              type: string
+            owner:
+              default: null
+              description: Set to null to omit Namespace resource
+              nullable: true
+          type: object
+      type: object
+  version: 1.2.3

@@ -1,0 +1,12 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      ref: origin/main
+      url: https://github.com/cgcollab/redis
+    includePaths:
+    - redis-*
+    path: .
+  path: upstream
+kind: Config
+minimumRequiredVersion: ""

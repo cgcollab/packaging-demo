@@ -1,0 +1,27 @@
+apiVersion: kctrl.carvel.dev/v1alpha1
+kind: PackageBuild
+metadata:
+  creationTimestamp: null
+  name: redis.corp.com
+spec:
+  release:
+  - resource: {}
+  template:
+    spec:
+      app:
+        spec:
+          deploy:
+          - kapp: {}
+          template:
+          - ytt:
+              paths:
+              - upstream
+              - overlays
+          - kbld: {}
+      export:
+      - imgpkgBundle:
+          image: gcr.io/fe-ciberkleid/packaging-demo/redis
+          useKbldImagesLock: true
+        includePaths:
+        - upstream
+        - overlays

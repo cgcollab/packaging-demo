@@ -1,0 +1,15 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageRepository
+metadata:
+  annotations:
+    kctrl.carvel.dev/repository-version: 1.0.0
+  creationTimestamp: "2023-06-21T20:54:23Z"
+  name: app-repo.corp.com
+spec:
+  fetch:
+    imgpkgBundle:
+      image: gcr.io/fe-ciberkleid/app-repo@sha256:fe6654e23d1038b1fbb874dc7d3c35169093725d9262d6e3e0007751ebdd8b90
+status:
+  conditions: null
+  friendlyDescription: ""
+  observedGeneration: 0

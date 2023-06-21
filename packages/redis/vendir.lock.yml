@@ -1,0 +1,9 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: copying files from kubernetes/website repo
+      sha: 2f26c9ef0a89c53e85befdec1fb2119db39950ab
+    path: .
+  path: upstream
+kind: LockConfig

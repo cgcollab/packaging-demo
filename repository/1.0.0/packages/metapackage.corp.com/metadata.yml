@@ -1,0 +1,9 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: metapackage.corp.com
+spec:
+  displayName: metapackage
+  longDescription: metapackage.corp.com
+  shortDescription: metapackage.corp.com
