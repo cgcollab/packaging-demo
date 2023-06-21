@@ -1,0 +1,13 @@
+#@data/values-schema
+#! This file contains default config values
+#! To override these values, use override files
+---
+namespace:
+  name: hello-app
+  #@schema/desc "Set to null to omit Namespace resource"
+  #@schema/type any=True
+  #@schema/nullable
+  owner: null
+
+helloApp:
+  name: hello-app

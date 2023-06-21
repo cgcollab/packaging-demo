@@ -1,0 +1,14 @@
+apiVersion: kbld.k14s.io/v1alpha1
+kind: Config
+#! build image
+sources:
+  - image: hello-app
+    path: ../../tmp/src/hello-app
+    pack:
+      build:
+        builder: paketobuildpacks/builder
+#! publish (push) image
+destinations:
+  - image: hello-app
+    newImage: localhost:5001/gitopscon/hello-app
+    tags: [latest]

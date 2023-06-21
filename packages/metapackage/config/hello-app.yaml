@@ -1,0 +1,37 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:yaml", "yaml")
+#@ load("@ytt:struct", "struct")
+
+#@ def collect_values(data_values):
+#@  values = {
+#@    "helloApp": {
+#@      "name": data.values.helloApp.name,
+#@      "message": data.values.helloApp.message
+#@    },
+#@    "namespace": {
+#@      "name": data.values.namespace.name
+#@    }
+#@  }
+#@  return struct.encode(values)
+#@ end
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: hello-app
+spec:
+  serviceAccountName: default-ns-sa
+  packageRef:
+    refName: hello-app.corp.com
+    versionSelection:
+      constraints: 1.0.0
+  values:
+    - secretRef:
+        name: hello-app-values
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hello-app-values
+stringData:
+  values.yml: #@ yaml.encode(collect_values(data.values))

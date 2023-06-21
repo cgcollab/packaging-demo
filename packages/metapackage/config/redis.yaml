@@ -1,0 +1,36 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:yaml", "yaml")
+#@ load("@ytt:struct", "struct")
+
+#@ def collect_values(data_values):
+#@  values = {
+#@    "helloApp": {
+#@      "name": data.values.helloApp.name
+#@    },
+#@    "namespace": {
+#@      "name": data.values.namespace.name
+#@    }
+#@  }
+#@  return struct.encode(values)
+#@ end
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: rediss
+spec:
+  serviceAccountName: default-ns-sa
+  packageRef:
+    refName: rediss.corp.com
+    versionSelection:
+      constraints: 1.2.3
+  values:
+    - secretRef:
+        name: rediss-values
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: rediss-values
+stringData:
+  values.yml: #@ yaml.encode(collect_values(data.values))

@@ -1,0 +1,47 @@
+#@ load("@ytt:data", "data")
+
+#@ def labels():
+app: #@ data.values.helloApp.name
+#@ end
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.helloApp.name
+spec:
+  selector: #@ labels()
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.helloApp.name
+spec:
+  selector:
+    matchLabels: #@ labels()
+  template:
+    metadata:
+      labels: #@ labels()
+    spec:
+      containers:
+        - name: hello-app
+          image: hello-app
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HELLO_MSG
+              value: #@ data.values.helloApp.message
+            - name: REDIS_ADDRESS
+              value: #@ data.values.helloApp.name + "-redis-leader." + data.values.namespace.name + ".svc.cluster.local:6379"
+          resources:
+            requests:
+              memory: #@ data.values.helloApp.memRequest
+              cpu: #@ data.values.helloApp.cpuRequest
+            limits:
+              memory: #@ data.values.helloApp.memLimit
+              cpu: #@ data.values.helloApp.cpuLimit
