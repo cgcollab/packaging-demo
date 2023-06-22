@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-06-21T21:23:20Z"
+  releasedAt: "2023-06-22T10:59:44Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/metapackage@sha256:518efad75060ff0c6c85ca4b96dba2a9353ac30ac55c984304a60280a1e154b1
+          image: gcr.io/fe-ciberkleid/metapackage@sha256:9b52588f4f4df630c638b73254133b8465d1b86421e62ae5d902ffa1eb2d96ca
       template:
       - ytt:
           paths:

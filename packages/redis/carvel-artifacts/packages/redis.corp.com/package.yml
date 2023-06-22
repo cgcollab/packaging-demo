@@ -5,7 +5,7 @@ metadata:
   name: redis.corp.com.2.1.0
 spec:
   refName: redis.corp.com
-  releasedAt: "2023-06-21T21:23:16Z"
+  releasedAt: "2023-06-22T10:59:40Z"
   template:
     spec:
       deploy:

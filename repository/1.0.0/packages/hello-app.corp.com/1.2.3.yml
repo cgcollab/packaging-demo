@@ -5,14 +5,14 @@ metadata:
   name: hello-app.corp.com.1.2.3
 spec:
   refName: hello-app.corp.com
-  releasedAt: "2023-06-21T21:23:11Z"
+  releasedAt: "2023-06-22T10:59:35Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/packaging-demo/hello-app@sha256:957f47ed2661b4f26e6856db162987acd8f13fda1e3d91ad1a05c507dbd2396d
+          image: gcr.io/fe-ciberkleid/packaging-demo/hello-app@sha256:bb3ae6b8a554c243dbde1b03f8f574fec33a03c419c7d9a967e65f9f40448eb1
       template:
       - ytt:
           paths:
