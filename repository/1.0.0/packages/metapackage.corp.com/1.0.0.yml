@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-06-22T10:59:44Z"
+  releasedAt: "2023-06-22T17:02:26Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/metapackage@sha256:9b52588f4f4df630c638b73254133b8465d1b86421e62ae5d902ffa1eb2d96ca
+          image: gcr.io/fe-ciberkleid/packaging-demo/metapackage@sha256:1da7e28ab477325d8756566ce585d230163fd2bd0b9f429126dd3cf84eb9e71b
       template:
       - ytt:
           paths:
@@ -70,6 +70,16 @@ spec:
               type: string
             name:
               default: hello-app
+              type: string
+          type: object
+        installConfig:
+          additionalProperties: false
+          properties:
+            namespace:
+              default: metapackage-install
+              type: string
+            serviceAccount:
+              default: metapackage-sa
               type: string
           type: object
         namespace:

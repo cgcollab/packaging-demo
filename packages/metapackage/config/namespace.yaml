@@ -1,6 +1,6 @@
 #@ load("@ytt:data","data")
 
-#@ if data.values.installConfig.namespace != "metapackage-install"
+#@ if data.values.installConfig.namespace != "metapackage-install":
 apiVersion: v1
 kind: Namespace
 metadata:

@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/metapackage
+          image: gcr.io/fe-ciberkleid/packaging-demo/metapackage
           useKbldImagesLock: true
         includePaths:
         - config

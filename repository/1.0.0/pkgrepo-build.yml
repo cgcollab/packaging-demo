@@ -1,9 +1,9 @@
 apiVersion: kctrl.carvel.dev/v1alpha1
 kind: PackageRepositoryBuild
 metadata:
-  creationTimestamp: "2023-06-21T20:53:59Z"
+  creationTimestamp: "2023-06-22T17:03:42Z"
   name: metapackage-repo.corp.com
 spec:
   export:
     imgpkgBundle:
-      image: gcr.io/fe-ciberkleid/metapackage-repo
+      image: gcr.io/fe-ciberkleid/packaging-demo/metapackage-repo
