@@ -2,6 +2,7 @@
 ---
 installConfig:
   serviceAccount: metapackage-sa
+  namespace: "metapackage-install"
 
 namespace:
   name: hello-app
@@ -38,3 +39,4 @@ helloApp:
       #@schema/type any=True
       #@schema/nullable
       privateKey: null
+

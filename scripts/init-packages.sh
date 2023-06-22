@@ -18,4 +18,4 @@ kctrl package init --chdir packages/metapackage # Prompts: metapackage.corp.com,
 kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repository/1.0.0 # Prompts: <YOUR REG + "/metapackage">
 
 # Release repository (use same version for repo and metapackage)
-kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  # Prompts: app-repo.corp.com,<YOUR REG + "/app-repo">
+kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  # Prompts: metapackage-repo.corp.com,<YOUR REG + "/metapackage-repo">
