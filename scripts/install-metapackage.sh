@@ -11,9 +11,7 @@ kctrl package install -i my-app -p metapackage.corp.com -v 1.0.0 -n installs
 
 # TROUBLESHOOTING
 # In case of error, correct configuration errors and re-release corrected package, metapackage, and repo by re-running init commands with a "-y" flag
-# Package installs will reconcile, but you can force an immediate reconciliation using the kick command for the repo and/or package install, as follows:
-# kctrl p repo kick -r app-repo -n installs -y
-# kctrl p i kick -i my-app -n installs -y
+# See scripts/update-packages.sh
 
 # To delete a package:
 # kctrl p i delete -i my-app -n installs
