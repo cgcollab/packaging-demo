@@ -23,7 +23,7 @@ spec:
   packageRef:
     refName: redis.corp.com
     versionSelection:
-      constraints: 1.2.3
+      constraints: 2.1.0
   values:
     - secretRef:
         name: redis-values

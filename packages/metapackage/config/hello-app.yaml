@@ -24,7 +24,7 @@ spec:
   packageRef:
     refName: hello-app.corp.com
     versionSelection:
-      constraints: 1.0.0
+      constraints: 1.2.3
   values:
     - secretRef:
         name: hello-app-values
