@@ -23,7 +23,7 @@ kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n carv
 # See scripts/update-packages.sh
 
 # To delete a package:
-# kctrl p i delete -i my-metapackage -n metapackage-install
+# kctrl p i delete -i my-metapackage -n carvel-repos
 # If deletion gets stuck, in separate terminal, run:
 # kctrl p i delete -i redis -n metapackage-install --noop
 # kctrl p i delete -i hello-app -n metapackage-install --noop
