@@ -19,8 +19,10 @@ apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
   name: hello-app
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting rbac"
 spec:
-  serviceAccountName: default-ns-sa
+  serviceAccountName: #@ data.values.installConfig.serviceAccount
   packageRef:
     refName: hello-app.corp.com
     versionSelection:

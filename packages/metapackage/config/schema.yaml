@@ -1,5 +1,8 @@
 #@data/values-schema
 ---
+installConfig:
+  serviceAccount: metapackage-sa
+
 namespace:
   name: hello-app
   #@schema/desc "Set to null to omit Namespace resource"

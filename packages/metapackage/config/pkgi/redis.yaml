@@ -18,8 +18,10 @@ apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
   name: redis
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting rbac"
 spec:
-  serviceAccountName: default-ns-sa
+  serviceAccountName: #@ data.values.installConfig.serviceAccount
   packageRef:
     refName: redis.corp.com
     versionSelection:

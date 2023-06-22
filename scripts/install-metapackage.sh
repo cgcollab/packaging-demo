@@ -6,8 +6,6 @@ kctrl package available list -A # shortthand: kctrl p a ls -A
 kctrl package available get -p metapackage.corp.com -n installs
 kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n installs
 
-kapp deploy -a rbac -f ns-rbac-default.yml --into-ns installs
-
 kubectl create ns hello-app
 kctrl package install -i my-app -p metapackage.corp.com -v 1.0.0 -n installs
 
