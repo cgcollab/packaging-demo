@@ -15,7 +15,6 @@ kctrl package available get -p metapackage.corp.com -n carvel-repos
 kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n carvel-repos
 
 kubectl create ns hello-app
-kubectl create ns metapackage-install # Should not be needed... ? Test again
 kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n carvel-repos # Should create and default to namespace "metapackage-install"
 
 # TROUBLESHOOTING
