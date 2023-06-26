@@ -17,7 +17,7 @@ kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  -y
 
 # If package repo tag is the same, you can trigger immediate reconciliation (default is every 10 min)
 # Otherwise, re-install (see scripts/install-metapackage.sh)
-kctrl package repo kick --repository metapackage-repo -n carvel-repos -y
+kctrl package repo kick --repository metapackage-repo -n metapackage-install -y
 kctrl package installed kick --package-install my-metapackage -n metapackage-install -y
 
 
