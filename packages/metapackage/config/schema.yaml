@@ -2,7 +2,6 @@
 ---
 installConfig:
   serviceAccount: metapackage-sa
-  namespace: "metapackage-install"
 
 namespace:
   name: hello-app
