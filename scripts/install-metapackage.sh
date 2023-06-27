@@ -15,7 +15,7 @@ kctrl package available get -p metapackage.corp.com -n metapackage-install
 kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n metapackage-install
 
 kubectl create ns hello-app
-kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install # Should create and default to namespace "metapackage-install"
+kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install
 
 # TROUBLESHOOTING
 # In case of error, correct configuration errors and re-release corrected package, metapackage, and repo by re-running init commands with a "-y" flag
