@@ -1,0 +1,44 @@
+#@ load("@ytt:data", "data")
+
+#@ def labels():
+app: #@ data.values.giantApp.name
+#@ end
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.giantApp.name
+spec:
+  selector: #@ labels()
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.giantApp.name
+spec:
+  selector:
+    matchLabels: #@ labels()
+  template:
+    metadata:
+      labels: #@ labels()
+    spec:
+      containers:
+        - name: giant-app
+          image: marygabry1508/giant-app
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HELLO_MSG
+              value: #@ data.values.giantApp.message
+          resources:
+            requests:
+              memory: #@ data.values.giantApp.memRequest
+              cpu: #@ data.values.giantApp.cpuRequest
+            limits:
+              memory: #@ data.values.giantApp.memLimit
+              cpu: #@ data.values.giantApp.cpuLimit

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-export MY_REG=gcr.io/fe-ciberkleid/packaging-demo
-
+#export MY_REG=gcr.io/fe-ciberkleid/packaging-demo
 # kind delete cluster
 # kind create cluster
 # kapp deploy -a kapp-controller -f https://github.com/vmware-tanzu/carvel-kapp-controller/releases/latest/download/release.yml -y
@@ -15,6 +14,7 @@ kctrl package available get -p metapackage.corp.com -n metapackage-install
 kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n metapackage-install
 
 kubectl create ns hello-app
+kubectl create ns giant-app
 kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install
 
 # TROUBLESHOOTING

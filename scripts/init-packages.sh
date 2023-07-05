@@ -1,4 +1,21 @@
-export MY_REG=taplab.azurecr.io/packaging-demo
+#export MY_REG=taplab.azurecr.io/packaging-demo
+cd ..
+export MY_REG=marygabry1508
+
+#----GIANT_APP
+# giant-app - build app container
+mkdir -p tmp/src/giant-app && rm -rf tmp/src/giant-app && git clone https://github.com/cgcollab/giant-app tmp/src/giant-app
+myDest=$MY_REG/giant-app yq e -i 'select(.kind == "Config").destinations[0].newImage = env(myDest)' tmp/src/giant-app/kbld.yml
+kbld -f tmp/src/giant-app/kbld.yml
+# giant-app - init & release package
+myDest=$MY_REG/giant-app yq e -i 'select(.kind == "Deployment").spec.template.spec.containers[0].image = env(myDest)' packages/giant-app/config/config.yml
+
+kctrl package init --chdir packages/giant-app # Prompts: giant-app.corp.com,1,config
+kctrl package release --chdir packages/giant-app --version 3.5.1 --repo-output ../../repository/1.0.0 # Prompts: <YOUR REG + "/giant-app">
+
+
+
+#----HELLO_APP
 
 # hello-app - build app container
 mkdir -p tmp/src/hello-app && rm -rf tmp/src/hello-app && git clone https://github.com/cgcollab/hello-app tmp/src/hello-app
@@ -24,5 +41,7 @@ kctrl package release --chdir packages/redis --version 2.1.0 --repo-output ../..
 kctrl package init --chdir packages/metapackage # Prompts: metapackage.corp.com,1,config
 kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repository/1.0.0 # Prompts: <YOUR REG + "/metapackage">
 
+
+#----RELEASE the REPO
 # Release repository (use same version that was used for the metapackage)
 kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  # Prompts: metapackage-repo.corp.com,<YOUR REG + "/metapackage-repo">

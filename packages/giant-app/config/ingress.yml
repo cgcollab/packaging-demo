@@ -1,0 +1,34 @@
+#@ load("@ytt:data", "data")
+
+#@ if data.values.giantApp.ingress.hostname and data.values.giantApp.ingress.domain:
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    #@ if data.values.giantApp.ingress.secret.certificate and data.values.giantApp.ingress.secret.privateKey:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    #@ end
+  name: #@ data.values.giantApp.name
+spec:
+  rules:
+    - host: #@ "{}.{}".format(data.values.giantApp.ingress.hostname, data.values.giantApp.ingress.domain)
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: /
+            backend:
+              service:
+                name: #@ data.values.giantApp.name
+                port:
+                  number: 8080
+  #@ if getattr(data.values.giantApp.ingress, "class"):
+  ingressClassName: #@ getattr(data.values.giantApp.ingress, "class")
+  #@ end
+  #@ if data.values.giantApp.ingress.secret.certificate and data.values.giantApp.ingress.secret.privateKey:
+  tls:
+    - hosts:
+        - #@ "{}.{}".format(data.values.giantApp.ingress.hostname, data.values.giantApp.ingress.domain)
+      secretName: #@ "{}-tls".format(data.values.giantApp.ingress.domain)
+  #@ end
+#@ end
