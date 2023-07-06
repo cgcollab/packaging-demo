@@ -1,4 +1,4 @@
 profile: full
 
 helloApp:
-  message: thursday
+  message: "A new happy package"

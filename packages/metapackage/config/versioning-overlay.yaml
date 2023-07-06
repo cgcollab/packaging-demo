@@ -1,0 +1,15 @@
+#@ load("@ytt:overlay", "overlay")
+
+#@ def valuesSecretMatcher(indexOrKey, left, right):
+#@  if not "metadata" in left: return False
+#@  return left["kind"] == "Secret" and left["metadata"]["name"].endswith("-values")
+#@ end
+#@overlay/match by=valuesSecretMatcher, expects="1+"
+---
+metadata:
+  #@overlay/match missing_ok=True
+  annotations:
+    #@overlay/match missing_ok=True
+    kapp.k14s.io/versioned: ""
+    #@overlay/match missing_ok=True
+    kapp.k14s.io/num-versions: "1"
