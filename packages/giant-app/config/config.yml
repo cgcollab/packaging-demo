@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: giant-app
-          image: marygabry1508/giant-app
+          image: ciberkleid736/giant-app:3.5.1
           ports:
             - containerPort: 8080
           env:

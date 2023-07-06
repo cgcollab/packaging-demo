@@ -2,10 +2,13 @@
 #@ load("@ytt:yaml", "yaml")
 #@ load("@ytt:struct", "struct")
 
+#@ if data.values.profile == "full":
+
 #@ def collect_values(data_values):
 #@  values = {
-#@    "helloApp": {
-#@      "name": data.values.helloApp.name
+#@    "giantApp": {
+#@      "name": data.values.giantApp.name,
+#@      "message": data.values.giantApp.message
 #@    },
 #@    "namespace": {
 #@      "name": data.values.namespace.name
@@ -17,24 +20,26 @@
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
-  name: redis
+  name: giant-app
   namespace: metapackage-install
   annotations:
     kapp.k14s.io/change-rule: "upsert after upserting rbac"
 spec:
   serviceAccountName: #@ data.values.installConfig.serviceAccount
   packageRef:
-    refName: redis.corp.com
+    refName: giant-app.corp.com
     versionSelection:
-      constraints: 2.1.0
+      constraints: 3.5.1
   values:
     - secretRef:
-        name: redis-values
+        name: giant-app-values
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: redis-values
+  name: giant-app-values
   namespace: metapackage-install
 stringData:
   values.yml: #@ yaml.encode(collect_values(data.values))
+
+#@ end

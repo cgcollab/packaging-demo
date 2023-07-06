@@ -45,7 +45,7 @@ spec:
     refName: giant-app.corp.com
     versionSelection:
       constraints: 0.0.0
-  serviceAccountName: giant-app-sa
+  serviceAccountName: metapackage-sa
 status:
   conditions: null
   friendlyDescription: ""

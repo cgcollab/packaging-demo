@@ -20,7 +20,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/packaging-demo/redis
+          image: ciberkleid736/redis
           useKbldImagesLock: true
         includePaths:
         - upstream

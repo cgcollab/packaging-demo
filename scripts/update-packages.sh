@@ -2,7 +2,7 @@
 
 # Flow to create a new release for existing package:
 #  Change the version in vendir.yaml then re-run kctrl commands with "-y" flag
-#  Can also run "vendr sync" instead of "kctrl package init..." - same effect
+#  Can also run "vendir sync" instead of "kctrl package init..." - same effect
 
 kctrl package init --chdir packages/hello-app -y
 kctrl package release --chdir packages/hello-app --version 1.2.3 --repo-output ../../repository/1.0.0  -y
@@ -19,6 +19,9 @@ kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  -y
 # Otherwise, re-install (see scripts/install-metapackage.sh)
 kctrl package repo kick --repository metapackage-repo -n metapackage-install -y
 kctrl package installed kick --package-install my-metapackage -n metapackage-install -y
+
+# kick other packages
+kctrl package installed kick --package-install hello-app -n metapackage-install -y
 
 
 

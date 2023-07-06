@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-06-22T17:41:36Z"
+  releasedAt: "2023-07-06T12:49:23Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/packaging-demo/metapackage@sha256:a44550540ffcb02018391439c95f2f662dec0e3b884fb32512d3aac598bfadb8
+          image: index.docker.io/ciberkleid736/metapackage@sha256:5f36330b9594b84cf54ebf116a5a91e12a841a94e62833df63edc47a93dc58f9
       template:
       - ytt:
           paths:
@@ -25,6 +25,52 @@ spec:
     openAPIv3:
       additionalProperties: false
       properties:
+        giantApp:
+          additionalProperties: false
+          properties:
+            cpuLimit:
+              default: 1000m
+              type: string
+            cpuRequest:
+              default: 500m
+              type: string
+            ingress:
+              additionalProperties: false
+              description: Set hostname and domain to null to omit Ingress resource
+              properties:
+                class:
+                  default: null
+                  nullable: true
+                domain:
+                  default: null
+                  nullable: true
+                hostname:
+                  default: null
+                  nullable: true
+                secret:
+                  additionalProperties: false
+                  properties:
+                    certificate:
+                      default: null
+                      nullable: true
+                    privateKey:
+                      default: null
+                      nullable: true
+                  type: object
+              type: object
+            memLimit:
+              default: 256Mi
+              type: string
+            memRequest:
+              default: 128Mi
+              type: string
+            message:
+              default: default
+              type: string
+            name:
+              default: giant-app
+              type: string
+          type: object
         helloApp:
           additionalProperties: false
           properties:
@@ -75,9 +121,6 @@ spec:
         installConfig:
           additionalProperties: false
           properties:
-            namespace:
-              default: metapackage-install
-              type: string
             serviceAccount:
               default: metapackage-sa
               type: string
@@ -86,12 +129,15 @@ spec:
           additionalProperties: false
           properties:
             name:
-              default: hello-app
+              default: apps
               type: string
             owner:
               default: null
               description: Set to null to omit Namespace resource
               nullable: true
           type: object
+        profile:
+          default: full
+          type: string
       type: object
   version: 1.0.0

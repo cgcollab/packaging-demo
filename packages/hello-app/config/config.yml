@@ -3,7 +3,6 @@
 #@ def labels():
 app: #@ data.values.helloApp.name
 #@ end
-
 ---
 apiVersion: v1
 kind: Service
@@ -30,7 +29,7 @@ spec:
     spec:
       containers:
         - name: hello-app
-          image: hello-app
+          image: ciberkleid736/hello-app:1.2.3
           ports:
             - containerPort: 8080
           env:

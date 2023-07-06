@@ -5,14 +5,14 @@ metadata:
   name: giant-app.corp.com.3.5.1
 spec:
   refName: giant-app.corp.com
-  releasedAt: "2023-07-05T20:26:14Z"
+  releasedAt: "2023-07-06T12:16:36Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: index.docker.io/marygabry1508/giant-app@sha256:ecc5cf734e788b37ab26db579b1f4d1f41679c8a8ce40b56a8854c175a8f8e55
+          image: index.docker.io/ciberkleid736/giant-app@sha256:d3201a9d089d8639f00b044bd750076abf2dabd7898c65274adfb706cbf7e6f1
       template:
       - ytt:
           paths:

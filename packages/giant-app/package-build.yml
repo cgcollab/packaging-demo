@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: marygabry1508/giant-app
+          image: ciberkleid736/giant-app
           useKbldImagesLock: true
         includePaths:
         - config

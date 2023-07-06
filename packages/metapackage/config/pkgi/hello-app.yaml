@@ -3,15 +3,23 @@
 #@ load("@ytt:struct", "struct")
 
 #@ def collect_values(data_values):
+#@  message = "big world"
+#@  if data.values.profile != "full":
+#@    message = "small world"
+#@  end
+#@  if hasattr(data.values, "helloApp") and hasattr(data.values.helloApp, "message") and data.values.helloApp.message != "":
+#@    message = data.values.helloApp.message
+#@  end
 #@  values = {
 #@    "helloApp": {
 #@      "name": data.values.helloApp.name,
-#@      "message": data.values.helloApp.message
+#@      "message": message
 #@    },
 #@    "namespace": {
 #@      "name": data.values.namespace.name
 #@    }
 #@  }
+
 #@  return struct.encode(values)
 #@ end
 ---

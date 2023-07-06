@@ -6,4 +6,4 @@ metadata:
 spec:
   export:
     imgpkgBundle:
-      image: gcr.io/fe-ciberkleid/packaging-demo/metapackage-repo
+      image: ciberkleid736/metapackage-repo

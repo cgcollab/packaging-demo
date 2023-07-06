@@ -5,14 +5,14 @@ metadata:
   name: redis.corp.com.2.1.0
 spec:
   refName: redis.corp.com
-  releasedAt: "2023-06-22T17:00:44Z"
+  releasedAt: "2023-07-06T12:18:08Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: gcr.io/fe-ciberkleid/packaging-demo/redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
+          image: index.docker.io/ciberkleid736/redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
       template:
       - ytt:
           paths:

@@ -3,12 +3,42 @@
 installConfig:
   serviceAccount: metapackage-sa
 
+profile: full
+
 namespace:
-  name: hello-app
+  name: apps
   #@schema/desc "Set to null to omit Namespace resource"
   #@schema/type any=True
   #@schema/nullable
   owner: null
+
+giantApp:
+  name: giant-app
+  message: "default"
+
+  memRequest: "128Mi"
+  cpuRequest: "500m"
+  memLimit: "256Mi"
+  cpuLimit: "1000m"
+
+  #@schema/desc "Set hostname and domain to null to omit Ingress resource"
+  ingress:
+    #@schema/type any=True
+    #@schema/nullable
+    hostname: null
+    #@schema/type any=True
+    #@schema/nullable
+    domain: null
+    #@schema/type any=True
+    #@schema/nullable
+    class: null
+    secret:
+      #@schema/type any=True
+      #@schema/nullable
+      certificate: null
+      #@schema/type any=True
+      #@schema/nullable
+      privateKey: null
 
 helloApp:
   name: hello-app
