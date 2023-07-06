@@ -20,6 +20,11 @@ kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n met
 kubectl create ns apps
 kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install --values-file values.yaml
 
+# Test app
+kubectl port-forward service/hello-app 8081:8080 -n apps
+http :8081
+#http :8081/random
+
 # TROUBLESHOOTING
 # In case of error, correct configuration errors and re-release corrected package, metapackage, and repo by re-running init commands with a "-y" flag
 # See scripts/update-packages.sh
