@@ -8,8 +8,7 @@ mkdir -p tmp/src/
 ## giant-app - build app container
 [[ -d tmp/src/giant-app ]] || git clone https://github.com/cgcollab/giant-app tmp/src/giant-app
 myDest=$MY_REG/giant-app yq e -i 'select(.kind == "Config").destinations[0].newImage = env(myDest)' tmp/src/giant-app/kbld.yml
-yq eval -i 'select(.kind == "Config").destinations[0].tags += ["3.5.1"] | select(.kind == "Config").destinations[0].tags = (select(.kind == "Config").destinations[0].tags | unique)' tmp/src/giant-app/kbld.yml
-yq e -i 'select(.kind == "Config").sources[0].path = "."' tmp/src/giant-app/kbld.yml
+#yq eval -i 'select(.kind == "Config").destinations[0].tags += ["3.5.1"] | select(.kind == "Config").destinations[0].tags = (select(.kind == "Config").destinations[0].tags | unique)' tmp/src/giant-app/kbld.yml
 pushd tmp/src/giant-app && kbld -f kbld.yml -f manifest.lock --lock-output manifest.lock && popd
 # giant-app - init & release package
 myDest=$MY_REG/giant-app:3.5.1 yq e -i 'select(.kind == "Deployment").spec.template.spec.containers[0].image = env(myDest)' packages/giant-app/config/config.yml
@@ -20,8 +19,7 @@ kctrl package release --chdir packages/giant-app --version 3.5.1 --repo-output .
 ## hello-app - build app container
 [[ -d tmp/src/hello-app ]] || git clone https://github.com/cgcollab/hello-app tmp/src/hello-app
 myDest=$MY_REG/hello-app yq e -i 'select(.kind == "Config").destinations[0].newImage = env(myDest)' tmp/src/hello-app/kbld.yml
-yq eval -i 'select(.kind == "Config").destinations[0].tags += ["1.2.3"] | select(.kind == "Config").destinations[0].tags = (select(.kind == "Config").destinations[0].tags | unique)' tmp/src/hello-app/kbld.yml
-yq e -i 'select(.kind == "Config").sources[0].path = "."' tmp/src/hello-app/kbld.yml
+#yq eval -i 'select(.kind == "Config").destinations[0].tags += ["1.2.3"] | select(.kind == "Config").destinations[0].tags = (select(.kind == "Config").destinations[0].tags | unique)' tmp/src/hello-app/kbld.yml
 pushd tmp/src/hello-app && kbld -f kbld.yml -f manifest.lock --lock-output manifest.lock && popd
 # hello-app - init & release package
 myDest=$MY_REG/hello-app:1.2.3 yq e -i 'select(.kind == "Deployment").spec.template.spec.containers[0].image = env(myDest)' packages/hello-app/config/config.yml
@@ -47,3 +45,9 @@ kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output
 #----RELEASE the REPO
 # Release repository (use same version that was used for the metapackage)
 kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  # Prompts: metapackage-repo.corp.com,<YOUR REG + "/metapackage-repo">
+
+
+#----REUSE a subset of PKGS in another REPO
+#$MY_REG/metapackage-repo:1.0.0
+
+
