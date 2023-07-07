@@ -12,7 +12,7 @@ namespace:
 helloApp:
   name: hello-app
   #@schema/desc "Name used in hello message from app when app is pinged."
-  message: "default"
+  message: "default from package"
 
   memRequest: "128Mi"
   cpuRequest: "500m"
