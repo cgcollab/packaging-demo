@@ -5,14 +5,14 @@ metadata:
   name: hello-app.corp.com.1.2.3
 spec:
   refName: hello-app.corp.com
-  releasedAt: "2023-07-06T12:17:50Z"
+  releasedAt: "2023-07-07T19:43:40Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: index.docker.io/ciberkleid736/hello-app@sha256:088f46d443030c66ec1c0961d9795998a6f4f961dc9e1d37b10dafe3da9de54f
+          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:b4499f07a611642fac968ee8273b8ca2915801c5ba06f890692d0e8cc5ddba3c
       template:
       - ytt:
           paths:
@@ -65,7 +65,7 @@ spec:
               default: 128Mi
               type: string
             message:
-              default: default
+              default: default from package
               description: Name used in hello message from app when app is pinged.
               type: string
             name:

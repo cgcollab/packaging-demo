@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: hello-app
-          image: ciberkleid736/hello-app:1.2.3
+          image: taplab.azurecr.io/packaging-demo/hello-app:1.2.3
           ports:
             - containerPort: 8080
           env:

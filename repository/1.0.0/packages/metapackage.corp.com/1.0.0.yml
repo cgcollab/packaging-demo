@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-07-06T12:49:23Z"
+  releasedAt: "2023-07-07T19:43:51Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: index.docker.io/ciberkleid736/metapackage@sha256:5f36330b9594b84cf54ebf116a5a91e12a841a94e62833df63edc47a93dc58f9
+          image: taplab.azurecr.io/packaging-demo/metapackage@sha256:f9d5c3a292a84f308176241bbe86773918203eb0111d0f3bde3490790671ca6c
       template:
       - ytt:
           paths:
@@ -65,7 +65,7 @@ spec:
               default: 128Mi
               type: string
             message:
-              default: default
+              default: default from metapackage
               type: string
             name:
               default: giant-app
@@ -111,7 +111,7 @@ spec:
               default: 128Mi
               type: string
             message:
-              default: default
+              default: default from metapackage
               description: Name used in hello message from app when app is pinged.
               type: string
             name:

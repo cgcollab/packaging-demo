@@ -5,14 +5,14 @@ metadata:
   name: giant-app.corp.com.3.5.1
 spec:
   refName: giant-app.corp.com
-  releasedAt: "2023-07-06T12:16:36Z"
+  releasedAt: "2023-07-07T19:43:36Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: index.docker.io/ciberkleid736/giant-app@sha256:d3201a9d089d8639f00b044bd750076abf2dabd7898c65274adfb706cbf7e6f1
+          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:4f4c2e2a11100e131a4e19252ffb60d84d83f2e087e673534698ff4e492b7176
       template:
       - ytt:
           paths:
@@ -65,7 +65,7 @@ spec:
               default: 128Mi
               type: string
             message:
-              default: default
+              default: default from package
               type: string
             name:
               default: giant-app

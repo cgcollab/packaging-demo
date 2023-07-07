@@ -29,8 +29,8 @@ metadata:
   name: giant-app.corp.com
 spec:
   displayName: giant-app
-  longDescription: samplepackage.corp.com
-  shortDescription: samplepackage.corp.com
+  longDescription: giant-app.corp.com
+  shortDescription: giant-app.corp.com
 
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
@@ -45,7 +45,7 @@ spec:
     refName: giant-app.corp.com
     versionSelection:
       constraints: 0.0.0
-  serviceAccountName: metapackage-sa
+  serviceAccountName: giant-app-sa
 status:
   conditions: null
   friendlyDescription: ""

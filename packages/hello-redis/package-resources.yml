@@ -2,9 +2,9 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: redis.corp.com.0.0.0
+  name: hello-redis.corp.com.0.0.0
 spec:
-  refName: redis.corp.com
+  refName: hello-redis.corp.com
   releasedAt: null
   template:
     spec:
@@ -27,11 +27,11 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: PackageMetadata
 metadata:
   creationTimestamp: null
-  name: redis.corp.com
+  name: hello-redis.corp.com
 spec:
-  displayName: redis
-  longDescription: redis.corp.com
-  shortDescription: redis.corp.com
+  displayName: hello-redis
+  longDescription: hello-redis.corp.com
+  shortDescription: hello-redis.corp.com
 
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
@@ -40,13 +40,13 @@ metadata:
   annotations:
     kctrl.carvel.dev/local-fetch-0: .
   creationTimestamp: null
-  name: redis
+  name: hello-redis
 spec:
   packageRef:
-    refName: redis.corp.com
+    refName: hello-redis.corp.com
     versionSelection:
       constraints: 0.0.0
-  serviceAccountName: metapackage-sa
+  serviceAccountName: hello-redis-sa
 status:
   conditions: null
   friendlyDescription: ""

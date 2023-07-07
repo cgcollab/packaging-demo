@@ -5,5 +5,5 @@ metadata:
   name: giant-app.corp.com
 spec:
   displayName: giant-app
-  longDescription: samplepackage.corp.com
-  shortDescription: samplepackage.corp.com
+  longDescription: giant-app.corp.com
+  shortDescription: giant-app.corp.com

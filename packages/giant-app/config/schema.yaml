@@ -11,7 +11,7 @@ namespace:
 
 giantApp:
   name: giant-app
-  message: "default"
+  message: "default from package"
 
   memRequest: "128Mi"
   cpuRequest: "500m"

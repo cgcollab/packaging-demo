@@ -2,17 +2,17 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: redis.corp.com.2.1.0
+  name: hello-redis.corp.com.2.1.0
 spec:
-  refName: redis.corp.com
-  releasedAt: "2023-07-06T12:18:08Z"
+  refName: hello-redis.corp.com
+  releasedAt: "2023-07-07T19:43:48Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: index.docker.io/ciberkleid736/redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
+          image: taplab.azurecr.io/packaging-demo/hello-redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
       template:
       - ytt:
           paths:

@@ -45,7 +45,7 @@ spec:
     refName: hello-app.corp.com
     versionSelection:
       constraints: 0.0.0
-  serviceAccountName: metapackage-sa
+  serviceAccountName: hello-app-sa
 status:
   conditions: null
   friendlyDescription: ""

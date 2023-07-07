@@ -17,24 +17,24 @@
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
-  name: redis
+  name: hello-redis
   namespace: metapackage-install
   annotations:
     kapp.k14s.io/change-rule: "upsert after upserting rbac"
 spec:
   serviceAccountName: #@ data.values.installConfig.serviceAccount
   packageRef:
-    refName: redis.corp.com
+    refName: hello-redis.corp.com
     versionSelection:
       constraints: 2.1.0
   values:
     - secretRef:
-        name: redis-values
+        name: hello-redis-values
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: redis-values
+  name: hello-redis-values
   namespace: metapackage-install
 stringData:
   values.yml: #@ yaml.encode(collect_values(data.values))

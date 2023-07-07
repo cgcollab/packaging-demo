@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: ciberkleid736/hello-app
+          image: taplab.azurecr.io/packaging-demo/hello-app
           useKbldImagesLock: true
         includePaths:
         - config

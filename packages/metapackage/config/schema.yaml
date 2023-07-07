@@ -14,7 +14,7 @@ namespace:
 
 giantApp:
   name: giant-app
-  message: "default"
+  message: "default from metapackage"
 
   memRequest: "128Mi"
   cpuRequest: "500m"
@@ -43,7 +43,7 @@ giantApp:
 helloApp:
   name: hello-app
   #@schema/desc "Name used in hello message from app when app is pinged."
-  message: "default"
+  message: "default from metapackage"
 
   memRequest: "128Mi"
   cpuRequest: "500m"

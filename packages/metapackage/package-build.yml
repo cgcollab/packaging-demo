@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: ciberkleid736/metapackage
+          image: taplab.azurecr.io/packaging-demo/metapackage
           useKbldImagesLock: true
         includePaths:
         - config

@@ -32,5 +32,5 @@ http :8081
 # To delete a package:
 # kctrl p i delete -i my-metapackage -n metapackage-install
 # If deletion gets stuck, in separate terminal, run:
-# kctrl p i delete -i redis -n metapackage-install --noop
+# kctrl p i delete -i hello-redis -n metapackage-install --noop
 # kctrl p i delete -i hello-app -n metapackage-install --noop
