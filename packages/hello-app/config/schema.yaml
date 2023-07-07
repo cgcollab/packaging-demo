@@ -11,6 +11,8 @@ namespace:
 
 helloApp:
   name: hello-app
+  #@schema/desc "Valid values: knative or core."
+  deploymentType: "knative"
   #@schema/desc "Name used in hello message from app when app is pinged."
   message: "default from package"
 

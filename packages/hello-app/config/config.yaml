@@ -3,23 +3,8 @@
 #@ def labels():
 app: #@ data.values.helloApp.name
 #@ end
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: #@ data.values.namespace.name
-  name: #@ data.values.helloApp.name
-spec:
-  selector: #@ labels()
-  ports:
-    - port: 8080
-      targetPort: 8080
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: #@ data.values.namespace.name
-  name: #@ data.values.helloApp.name
+
+#@ def addPodSpec():
 spec:
   selector:
     matchLabels: #@ labels()
@@ -44,3 +29,37 @@ spec:
             limits:
               memory: #@ data.values.helloApp.memLimit
               cpu: #@ data.values.helloApp.cpuLimit
+#@ end
+
+#@ if hasattr(data.values.helloApp, "deploymentType"):
+#@ if/end hasattr(data.values.helloApp.deploymentType, "knative"):
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-app
+#@ addPodSpec()
+#@ end
+
+  #@ if hasattr(data.values.helloApp, "deploymentType"):
+  #@ if/end hasattr(data.values.helloApp.deploymentType, "core"):
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.helloApp.name
+spec:
+  selector: #@ labels()
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.helloApp.name
+#@ addPodSpec()
+#@ end
+
