@@ -1,9 +1,0 @@
-apiVersion: data.packaging.carvel.dev/v1alpha1
-kind: PackageMetadata
-metadata:
-  creationTimestamp: null
-  name: hello-redis.corp.com
-spec:
-  displayName: hello-redis
-  longDescription: hello-redis.corp.com
-  shortDescription: hello-redis.corp.com
