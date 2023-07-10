@@ -1,0 +1,15 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageRepository
+metadata:
+  annotations:
+    kctrl.carvel.dev/repository-version: 1.0.0-small
+  creationTimestamp: "2023-07-10T17:23:51Z"
+  name: metapackage-repo.corp.com
+spec:
+  fetch:
+    imgpkgBundle:
+      image: taplab.azurecr.io/packaging-demo/metapackage-repo@sha256:11fa690330b122a5252037465ffda7f737d13ab1f2c6b3c1e7e1ab89617a6b43
+status:
+  conditions: null
+  friendlyDescription: ""
+  observedGeneration: 0

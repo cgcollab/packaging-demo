@@ -1,0 +1,17 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+
+# declaration of minimum required vendir binary version (optional)
+minimumRequiredVersion: 0.8.0
+
+# one or more directories to manage with vendir
+directories:
+- path: "1.0.0-small"
+  contents:
+  - imgpkgBundle:
+      image: taplab.azurecr.io/packaging-demo/metapackage-repo:1.0.0
+    path: "."
+    includePaths:
+    - /packages/hello-app.corp.com/**/*
+    - /packages/hello-redis.corp.com/**/*
+    - /packages/metapackage.corp.com/**/*

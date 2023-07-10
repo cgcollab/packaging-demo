@@ -1,0 +1,48 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: hello-redis.corp.com.2.1.0
+spec:
+  refName: hello-redis.corp.com
+  releasedAt: "2023-07-07T19:43:48Z"
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - imgpkgBundle:
+          image: taplab.azurecr.io/packaging-demo/hello-redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
+      template:
+      - ytt:
+          paths:
+          - upstream
+          - overlays
+      - kbld:
+          paths:
+          - '-'
+          - .imgpkg/images.yml
+  valuesSchema:
+    openAPIv3:
+      additionalProperties: false
+      properties:
+        helloApp:
+          additionalProperties: false
+          properties:
+            name:
+              default: hello-app
+              type: string
+          type: object
+        namespace:
+          additionalProperties: false
+          properties:
+            name:
+              default: hello-app
+              type: string
+            owner:
+              default: null
+              description: Set to null to omit Namespace resource
+              nullable: true
+          type: object
+      type: object
+  version: 2.1.0
