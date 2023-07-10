@@ -24,6 +24,7 @@ imgpkg pull -b $MY_REG-edge/metapackage-repo:1.0.0-small -o tmp/edge
 tree -a tmp/edge
 yq tmp/edge/.imgpkg/images.yml
 
+kubectl cluster-info --context kind-pkg-demo-small
 kubectl create ns metapackage-install
 kctrl package repo add -r metapackage-repo --url $MY_REG-edge/metapackage-repo:1.0.0-small -n metapackage-install
 #kctrl package repository list -A
