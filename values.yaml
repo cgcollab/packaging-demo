@@ -1,4 +1,15 @@
-profile: full
+profile: medium
+
+namespace:
+  name: apps
 
 helloApp:
+  name: hello-app
   message: "A new even happier package"
+#  deploymentType: "core" # or core o knative
+
+giantApp:
+  name: giant-app
+#  deploymentType: "core" # or core o knative
+
+

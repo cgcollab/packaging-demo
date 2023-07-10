@@ -4,19 +4,29 @@
 
 #@ def collect_values(data_values):
 #@  message = "big world"
+#@  deploymentType = "knative"
+#@  namespace = default
 #@  if data.values.profile != "full":
 #@    message = "small world"
+#@    deploymentType = "core"
+#@  end
+#@  if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name != "":
+#@    namespace = data.values.namespace.name
 #@  end
 #@  if hasattr(data.values, "helloApp") and hasattr(data.values.helloApp, "message") and data.values.helloApp.message != "":
 #@    message = data.values.helloApp.message
 #@  end
+#@  if hasattr(data.values, "helloApp") and hasattr(data.values.helloApp, "deploymentType") and data.values.helloApp.deploymentType != "":
+#@    deploymentType = data.values.helloApp.deploymentType
+#@  end
 #@  values = {
 #@    "helloApp": {
+#@      "deploymentType": deploymentType,
 #@      "name": data.values.helloApp.name,
 #@      "message": message
 #@    },
 #@    "namespace": {
-#@      "name": data.values.namespace.name
+#@      "name": namespace
 #@    }
 #@  }
 

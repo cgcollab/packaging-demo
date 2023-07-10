@@ -1,0 +1,9 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: hello-app.corp.com
+spec:
+  displayName: hello-app
+  longDescription: hello-app.corp.com
+  shortDescription: hello-app.corp.com

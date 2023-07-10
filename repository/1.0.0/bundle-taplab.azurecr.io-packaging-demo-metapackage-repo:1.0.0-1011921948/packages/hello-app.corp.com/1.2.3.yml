@@ -5,14 +5,14 @@ metadata:
   name: hello-app.corp.com.1.2.3
 spec:
   refName: hello-app.corp.com
-  releasedAt: "2023-07-10T22:16:51Z"
+  releasedAt: "2023-07-10T17:59:31Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:f05b6a4205790b7060e9face7e32010261902eda4a82f65653973db3b312cbb8
+          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:5ad8f9e2022aefe75d80a55a167dbde0d7902d765fafc6607dd771d8f1a4af4e
       template:
       - ytt:
           paths:

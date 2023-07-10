@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-07-07T19:43:51Z"
+  releasedAt: "2023-07-10T21:57:16Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/metapackage@sha256:f9d5c3a292a84f308176241bbe86773918203eb0111d0f3bde3490790671ca6c
+          image: taplab.azurecr.io/packaging-demo/metapackage@sha256:6df33e899b331179c52beed99a8903026d0adae47bcf3e9bc174fe4889b8d025
       template:
       - ytt:
           paths:
@@ -34,6 +34,10 @@ spec:
             cpuRequest:
               default: 500m
               type: string
+            deploymentType:
+              default: ""
+              description: 'Valid values: knative or core.'
+              type: string
             ingress:
               additionalProperties: false
               description: Set hostname and domain to null to omit Ingress resource
@@ -63,9 +67,6 @@ spec:
               type: string
             memRequest:
               default: 128Mi
-              type: string
-            message:
-              default: default from metapackage
               type: string
             name:
               default: giant-app
@@ -80,6 +81,10 @@ spec:
             cpuRequest:
               default: 500m
               type: string
+            deploymentType:
+              default: ""
+              description: 'Valid values: knative or core.'
+              type: string
             ingress:
               additionalProperties: false
               description: Set hostname and domain to null to omit Ingress resource
@@ -111,7 +116,7 @@ spec:
               default: 128Mi
               type: string
             message:
-              default: default from metapackage
+              default: ""
               description: Name used in hello message from app when app is pinged.
               type: string
             name:

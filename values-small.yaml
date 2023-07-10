@@ -1,0 +1,12 @@
+profile: small
+
+namespace:
+  name: apps-small
+
+helloApp:
+  name: hello-app
+  message: "A new tiny package"
+#  deploymentType: "core" # or core o knative
+
+
+

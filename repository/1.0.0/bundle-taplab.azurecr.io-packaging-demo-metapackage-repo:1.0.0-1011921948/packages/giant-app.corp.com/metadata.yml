@@ -1,0 +1,9 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: giant-app.corp.com
+spec:
+  displayName: giant-app
+  longDescription: giant-app.corp.com
+  shortDescription: giant-app.corp.com

@@ -6,7 +6,7 @@ installConfig:
 profile: full
 
 namespace:
-  name: apps
+  name: ""
   #@schema/desc "Set to null to omit Namespace resource"
   #@schema/type any=True
   #@schema/nullable
@@ -14,7 +14,8 @@ namespace:
 
 giantApp:
   name: giant-app
-  message: "default from metapackage"
+  #@schema/desc "Valid values: knative or core."
+  deploymentType: ""
 
   memRequest: "128Mi"
   cpuRequest: "500m"
@@ -42,8 +43,10 @@ giantApp:
 
 helloApp:
   name: hello-app
+  #@schema/desc "Valid values: knative or core."
+  deploymentType: ""
   #@schema/desc "Name used in hello message from app when app is pinged."
-  message: "default from metapackage"
+  message: ""
 
   memRequest: "128Mi"
   cpuRequest: "500m"

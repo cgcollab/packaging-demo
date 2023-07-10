@@ -11,7 +11,8 @@ namespace:
 
 giantApp:
   name: giant-app
-  message: "default from package"
+  #@schema/desc "Valid values: knative or core."
+  deploymentType: "knative"
 
   memRequest: "128Mi"
   cpuRequest: "500m"

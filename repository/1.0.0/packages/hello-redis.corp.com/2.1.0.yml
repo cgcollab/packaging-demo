@@ -5,7 +5,7 @@ metadata:
   name: hello-redis.corp.com.2.1.0
 spec:
   refName: hello-redis.corp.com
-  releasedAt: "2023-07-07T19:43:48Z"
+  releasedAt: "2023-07-10T22:17:00Z"
   template:
     spec:
       deploy:

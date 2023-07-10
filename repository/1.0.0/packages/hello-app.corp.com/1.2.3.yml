@@ -5,14 +5,14 @@ metadata:
   name: hello-app.corp.com.1.2.3
 spec:
   refName: hello-app.corp.com
-  releasedAt: "2023-07-07T19:43:40Z"
+  releasedAt: "2023-07-10T22:16:51Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:b4499f07a611642fac968ee8273b8ca2915801c5ba06f890692d0e8cc5ddba3c
+          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:f05b6a4205790b7060e9face7e32010261902eda4a82f65653973db3b312cbb8
       template:
       - ytt:
           paths:
@@ -33,6 +33,10 @@ spec:
               type: string
             cpuRequest:
               default: 500m
+              type: string
+            deploymentType:
+              default: knative
+              description: 'Valid values: knative or core.'
               type: string
             ingress:
               additionalProperties: false

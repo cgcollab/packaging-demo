@@ -5,14 +5,14 @@ metadata:
   name: giant-app.corp.com.3.5.1
 spec:
   refName: giant-app.corp.com
-  releasedAt: "2023-07-07T19:43:36Z"
+  releasedAt: "2023-07-10T22:16:48Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:4f4c2e2a11100e131a4e19252ffb60d84d83f2e087e673534698ff4e492b7176
+          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:c0b2e27e53954296f9d51a897a18c423422552605626245a0466919bc91b1320
       template:
       - ytt:
           paths:
@@ -33,6 +33,10 @@ spec:
               type: string
             cpuRequest:
               default: 500m
+              type: string
+            deploymentType:
+              default: knative
+              description: 'Valid values: knative or core.'
               type: string
             ingress:
               additionalProperties: false
@@ -63,9 +67,6 @@ spec:
               type: string
             memRequest:
               default: 128Mi
-              type: string
-            message:
-              default: default from package
               type: string
             name:
               default: giant-app

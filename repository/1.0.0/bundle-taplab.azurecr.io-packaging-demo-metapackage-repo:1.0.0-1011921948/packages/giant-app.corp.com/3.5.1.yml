@@ -2,17 +2,17 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: hello-app.corp.com.1.2.3
+  name: giant-app.corp.com.3.5.1
 spec:
-  refName: hello-app.corp.com
-  releasedAt: "2023-07-10T22:16:51Z"
+  refName: giant-app.corp.com
+  releasedAt: "2023-07-10T17:58:10Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/hello-app@sha256:f05b6a4205790b7060e9face7e32010261902eda4a82f65653973db3b312cbb8
+          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:49c7214c237d3c6c5f68d5459e4641f5bd86bb30fbc77432b4a98ef2ef07299b
       template:
       - ytt:
           paths:
@@ -25,7 +25,7 @@ spec:
     openAPIv3:
       additionalProperties: false
       properties:
-        helloApp:
+        giantApp:
           additionalProperties: false
           properties:
             cpuLimit:
@@ -68,24 +68,19 @@ spec:
             memRequest:
               default: 128Mi
               type: string
-            message:
-              default: default from package
-              description: Name used in hello message from app when app is pinged.
-              type: string
             name:
-              default: hello-app
+              default: giant-app
               type: string
           type: object
         namespace:
           additionalProperties: false
           properties:
             name:
-              default: hello-app
+              default: giant-app
               type: string
             owner:
               default: null
-              description: Set to null to omit Namespace resource
               nullable: true
           type: object
       type: object
-  version: 1.2.3
+  version: 3.5.1

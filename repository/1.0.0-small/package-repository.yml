@@ -3,12 +3,12 @@ kind: PackageRepository
 metadata:
   annotations:
     kctrl.carvel.dev/repository-version: 1.0.0-small
-  creationTimestamp: "2023-07-10T17:23:51Z"
+  creationTimestamp: "2023-07-10T22:22:09Z"
   name: metapackage-repo.corp.com
 spec:
   fetch:
     imgpkgBundle:
-      image: taplab.azurecr.io/packaging-demo/metapackage-repo@sha256:11fa690330b122a5252037465ffda7f737d13ab1f2c6b3c1e7e1ab89617a6b43
+      image: taplab.azurecr.io/packaging-demo/metapackage-repo@sha256:9e7c8de7edb1a63495440fac396ea32de9d3788ef0d495ac2f297dfb89f5e7aa
 status:
   conditions: null
   friendlyDescription: ""

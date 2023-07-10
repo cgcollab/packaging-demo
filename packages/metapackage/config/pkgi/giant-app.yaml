@@ -2,18 +2,28 @@
 #@ load("@ytt:yaml", "yaml")
 #@ load("@ytt:struct", "struct")
 
-#@ if data.values.profile == "full":
-
 #@ def collect_values(data_values):
+#@  deploymentType = "knative"
+#@  namespace = default
+#@  if data.values.profile != "full":
+#@    deploymentType = "core"
+#@  end
+#@  if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name != "":
+#@    namespace = data.values.namespace.name
+#@  end
+#@  if hasattr(data.values, "giantApp") and hasattr(data.values.giantApp, "deploymentType") and data.values.giantApp.deploymentType != "":
+#@    deploymentType = data.values.giantApp.deploymentType
+#@  end
 #@  values = {
 #@    "giantApp": {
-#@      "name": data.values.giantApp.name,
-#@      "message": data.values.giantApp.message
+#@      "deploymentType": deploymentType,
+#@      "name": data.values.giantApp.name
 #@    },
 #@    "namespace": {
-#@      "name": data.values.namespace.name
+#@      "name": namespace
 #@    }
 #@  }
+
 #@  return struct.encode(values)
 #@ end
 ---
@@ -42,4 +52,3 @@ metadata:
 stringData:
   values.yml: #@ yaml.encode(collect_values(data.values))
 
-#@ end

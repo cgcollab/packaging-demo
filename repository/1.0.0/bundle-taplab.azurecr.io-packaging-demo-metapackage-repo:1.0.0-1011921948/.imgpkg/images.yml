@@ -1,0 +1,16 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: taplab.azurecr.io/packaging-demo/giant-app@sha256:49c7214c237d3c6c5f68d5459e4641f5bd86bb30fbc77432b4a98ef2ef07299b
+  image: taplab.azurecr.io/packaging-demo/giant-app@sha256:49c7214c237d3c6c5f68d5459e4641f5bd86bb30fbc77432b4a98ef2ef07299b
+- annotations:
+    kbld.carvel.dev/id: taplab.azurecr.io/packaging-demo/hello-app@sha256:5ad8f9e2022aefe75d80a55a167dbde0d7902d765fafc6607dd771d8f1a4af4e
+  image: taplab.azurecr.io/packaging-demo/hello-app@sha256:5ad8f9e2022aefe75d80a55a167dbde0d7902d765fafc6607dd771d8f1a4af4e
+- annotations:
+    kbld.carvel.dev/id: taplab.azurecr.io/packaging-demo/hello-redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
+  image: taplab.azurecr.io/packaging-demo/hello-redis@sha256:af338857b96404e37ac2b071df1c7cd35689871ad769e421f6a7b3c7aa988dfc
+- annotations:
+    kbld.carvel.dev/id: taplab.azurecr.io/packaging-demo/metapackage@sha256:f9d5c3a292a84f308176241bbe86773918203eb0111d0f3bde3490790671ca6c
+  image: taplab.azurecr.io/packaging-demo/metapackage@sha256:f9d5c3a292a84f308176241bbe86773918203eb0111d0f3bde3490790671ca6c
+kind: ImagesLock

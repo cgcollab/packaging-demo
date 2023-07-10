@@ -3,6 +3,37 @@
 #@ def labels():
 app: #@ data.values.giantApp.name
 #@ end
+
+#@ def addDeploymentSpec():
+selector:
+  matchLabels: #@ labels()
+template:
+  metadata:
+    labels: #@ labels()
+  spec:
+    containers:
+      - name: giant-app
+        image: taplab.azurecr.io/packaging-demo/giant-app:3.5.1
+        ports:
+          - containerPort: 8080
+        resources:
+          requests:
+            memory: #@ data.values.giantApp.memRequest
+            cpu: #@ data.values.giantApp.cpuRequest
+          limits:
+            memory: #@ data.values.giantApp.memLimit
+            cpu: #@ data.values.giantApp.cpuLimit
+#@ end
+
+#@ if hasattr(data.values.giantApp, "deploymentType"):
+#@ if data.values.giantApp.deploymentType == "knative":
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: giant-app
+spec: #@ addDeploymentSpec()
+#@ else:
 ---
 apiVersion: v1
 kind: Service
@@ -20,25 +51,7 @@ kind: Deployment
 metadata:
   namespace: #@ data.values.namespace.name
   name: #@ data.values.giantApp.name
-spec:
-  selector:
-    matchLabels: #@ labels()
-  template:
-    metadata:
-      labels: #@ labels()
-    spec:
-      containers:
-        - name: giant-app
-          image: taplab.azurecr.io/packaging-demo/giant-app:3.5.1
-          ports:
-            - containerPort: 8080
-          env:
-            - name: HELLO_MSG
-              value: #@ data.values.giantApp.message
-          resources:
-            requests:
-              memory: #@ data.values.giantApp.memRequest
-              cpu: #@ data.values.giantApp.cpuRequest
-            limits:
-              memory: #@ data.values.giantApp.memLimit
-              cpu: #@ data.values.giantApp.cpuLimit
+spec: #@ addDeploymentSpec()
+#@ end
+#@ end
+
