@@ -5,7 +5,7 @@
 #@ def collect_values(data_values):
 #@  message = "big world"
 #@  deploymentType = "knative"
-#@  namespace = default
+#@  namespace = "default"
 #@  if data.values.profile != "full":
 #@    message = "small world"
 #@    deploymentType = "core"

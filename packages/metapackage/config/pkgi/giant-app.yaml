@@ -4,7 +4,7 @@
 
 #@ def collect_values(data_values):
 #@  deploymentType = "knative"
-#@  namespace = default
+#@  namespace = "default"
 #@  if data.values.profile != "full":
 #@    deploymentType = "core"
 #@  end

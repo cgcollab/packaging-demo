@@ -3,12 +3,16 @@
 #@ load("@ytt:struct", "struct")
 
 #@ def collect_values(data_values):
+#@  namespace = "default"
+#@  if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name != "":
+#@    namespace = data.values.namespace.name
+#@  end
 #@  values = {
 #@    "helloApp": {
 #@      "name": data.values.helloApp.name
 #@    },
 #@    "namespace": {
-#@      "name": data.values.namespace.name
+#@      "name": namespace
 #@    }
 #@  }
 #@  return struct.encode(values)
