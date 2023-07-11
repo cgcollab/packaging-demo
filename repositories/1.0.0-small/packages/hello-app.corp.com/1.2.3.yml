@@ -5,7 +5,7 @@ metadata:
   name: hello-app.corp.com.1.2.3
 spec:
   refName: hello-app.corp.com
-  releasedAt: "2023-07-11T13:28:01Z"
+  releasedAt: "2023-07-11T14:11:44Z"
   template:
     spec:
       deploy:

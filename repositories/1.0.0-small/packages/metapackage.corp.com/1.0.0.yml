@@ -5,7 +5,7 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-07-11T13:28:11Z"
+  releasedAt: "2023-07-11T14:12:36Z"
   template:
     spec:
       deploy:
