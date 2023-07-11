@@ -4,7 +4,7 @@ if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 
 git checkout -B start-state
 
-rm -rf tmp/
+#rm -rf tmp/
 
 rm -rf repositories/1.0.0/packages
 rm -f repositories/1.0.0/package-repository.yml
