@@ -2,6 +2,8 @@
 
 if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 
+git checkout -B start-state
+
 rm -rf tmp/
 
 rm -rf repositories/1.0.0/packages
@@ -32,3 +34,5 @@ rm -f packages/hello-redis/package-build.yml
 rm -f packages/hello-redis/package-resources.yml
 rm -f packages/hello-redis/vendir.yml
 rm -f packages/hello-redis/vendir.lock.yml
+
+tree -a --matchdirs packages --matchdirs repositories
