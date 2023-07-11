@@ -24,7 +24,6 @@ template:
             memory: #@ data.values.giantApp.memLimit
             cpu: #@ data.values.giantApp.cpuLimit
 #@ end
-
 #@ if hasattr(data.values.giantApp, "deploymentType"):
 #@ if data.values.giantApp.deploymentType == "knative":
 ---

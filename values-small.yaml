@@ -5,8 +5,8 @@ namespace:
 
 helloApp:
   name: hello-app
-  message: "A new tiny package"
-#  deploymentType: "core" # or core o knative
+  message: "new tiny package"
+#  deploymentType: "knative" # default for small profile is core
 
 
 

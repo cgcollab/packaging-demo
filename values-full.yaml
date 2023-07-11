@@ -1,0 +1,13 @@
+profile: full
+
+namespace:
+  name: apps
+
+helloApp:
+  name: hello-app
+  message: "full happy package"
+#  deploymentType: "core" # default for full profile is knative
+
+giantApp:
+  name: giant-app
+#  deploymentType: "core" # default for full profile is knative

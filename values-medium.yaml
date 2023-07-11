@@ -1,0 +1,13 @@
+profile: medium
+
+namespace:
+  name: apps
+
+helloApp:
+  name: hello-app
+  message: "medium happier package"
+#  deploymentType: "knative" # default for medium profile is core
+
+giantApp:
+  name: giant-app
+#  deploymentType: "knative" # default for medium profile is core

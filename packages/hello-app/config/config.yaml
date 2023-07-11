@@ -29,7 +29,6 @@ template:
             memory: #@ data.values.helloApp.memLimit
             cpu: #@ data.values.helloApp.cpuLimit
 #@ end
-
 #@ if hasattr(data.values.helloApp, "deploymentType"):
 #@ if data.values.helloApp.deploymentType == "knative":
 ---

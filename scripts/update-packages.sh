@@ -25,6 +25,14 @@ kctrl package installed kick --package-install my-metapackage -n metapackage-ins
 # kick other packages
 kctrl package installed kick --package-install hello-app -n metapackage-install -y
 
+# TROUBLESHOOTING
+# In case of error, correct configuration errors and re-release corrected package, metapackage, and repo by re-running init commands with a "-y" flag
+# See scripts/update-packages.sh
 
+# To delete a package:
+# kctrl p i delete -i my-metapackage -n metapackage-install
+# If deletion gets stuck, in separate terminal, run:
+# kctrl p i delete -i hello-redis -n metapackage-install --noop
+# kctrl p i delete -i hello-app -n metapackage-install --noop
 
 
