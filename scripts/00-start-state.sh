@@ -28,6 +28,3 @@ rm -f packages/hello-redis/package-build.yml
 rm -f packages/hello-redis/package-resources.yml
 rm -f packages/hello-redis/vendir.yml
 rm -f packages/hello-redis/vendir.lock.yml
-
-
-
