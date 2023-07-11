@@ -59,4 +59,3 @@ metadata:
 spec: #@ addDeploymentSpec()
 #@ end
 #@ end
-
