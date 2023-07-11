@@ -3,6 +3,9 @@
 if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 if [[ -z $MY_REG ]]; then echo "ERROR: Env is not set. Exiting script."; (return 0 2>/dev/null) && return || exit; fi
 
+kctrl package installed delete -i my-metapackage -n metapackage-install --yes
+kctrl package repo delete -r metapackage-repo -n metapackage-install --yes
+
 kubectl create ns metapackage-install
 kctrl package repo add -r metapackage-repo --url $MY_REG/metapackage-repo:1.0.0 -n metapackage-install
 #kctrl package repository list -A
@@ -26,6 +29,6 @@ kubectl get kservice -n A
 kubectl get service -n apps
 
 # Test app
-kubectl port-forward service/hello-app 8081:8080 -n apps
-http :8081
+echo "kubectl port-forward service/hello-app 8081:8080 -n apps"
+echo "http :8081"
 #http :8081/random

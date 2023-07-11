@@ -5,14 +5,14 @@ metadata:
   name: metapackage.corp.com.1.0.0
 spec:
   refName: metapackage.corp.com
-  releasedAt: "2023-07-10T21:57:16Z"
+  releasedAt: "2023-07-11T13:06:18Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/metapackage@sha256:6df33e899b331179c52beed99a8903026d0adae47bcf3e9bc174fe4889b8d025
+          image: taplab.azurecr.io/packaging-demo/metapackage@sha256:ef4b62e58ca2c4f23fb4fe7487bb0552963ea965a457636cbb6396812f93b0de
       template:
       - ytt:
           paths:
@@ -134,7 +134,7 @@ spec:
           additionalProperties: false
           properties:
             name:
-              default: apps
+              default: ""
               type: string
             owner:
               default: null

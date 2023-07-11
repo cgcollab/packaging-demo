@@ -28,7 +28,7 @@ yq tmp/edge/.imgpkg/images.yml
 
 # Clean cluster (kn quickstart cannot start 2 concurrent clusters because use of port 80 is not configurable)
 kctrl package installed delete -i my-metapackage -n metapackage-install --yes
-kctrl package repo delete -r metapackage-repo -n metapackage-install
+kctrl package repo delete -r metapackage-repo -n metapackage-install --yes
 
 kctrl package repo add -r metapackage-repo --url $MY_REG-edge/metapackage-repo:1.0.0-small -n metapackage-install
 kctrl package available list -A
