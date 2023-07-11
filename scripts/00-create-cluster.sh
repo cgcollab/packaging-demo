@@ -14,10 +14,6 @@ fi
 
 brew install knative-sandbox/kn-plugins/quickstart
 
-kind delete cluster --name pkg-demo-small
-kn quickstart kind --name pkg-demo-small --install-serving
-kapp deploy -a kapp-controller -f https://github.com/vmware-tanzu/carvel-kapp-controller/releases/latest/download/release.yml -y
-
 kind delete cluster --name pkg-demo
 kn quickstart kind --name pkg-demo --install-serving
 kapp deploy -a kapp-controller -f https://github.com/vmware-tanzu/carvel-kapp-controller/releases/latest/download/release.yml -y

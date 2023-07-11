@@ -3,8 +3,6 @@
 if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 if [[ -z $MY_REG ]]; then echo "ERROR: Env is not set. Exiting script."; (return 0 2>/dev/null) && return || exit; fi
 
-kubectl cluster-info --context kind-pkg-demo
-
 kubectl create ns metapackage-install
 kctrl package repo add -r metapackage-repo --url $MY_REG/metapackage-repo:1.0.0 -n metapackage-install
 #kctrl package repository list -A

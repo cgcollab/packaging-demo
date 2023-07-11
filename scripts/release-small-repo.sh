@@ -24,14 +24,16 @@ imgpkg pull -b $MY_REG-edge/metapackage-repo:1.0.0-small -o tmp/edge
 tree -a tmp/edge
 yq tmp/edge/.imgpkg/images.yml
 
-kubectl cluster-info --context kind-pkg-demo-small
-kubectl create ns metapackage-install
+# Clean cluster (kn quickstart cannot start 2 concurrent clusters because use of port 80 is not configurable)
+kctrl package installed delete -i my-metapackage -n metapackage-install
+kctrl package repo delete -r metapackage-repo -n metapackage-install
+
 kctrl package repo add -r metapackage-repo --url $MY_REG-edge/metapackage-repo:1.0.0-small -n metapackage-install
 #kctrl package repository list -A
 
 kctrl package available list -A # shorthand: kctrl p a ls -A
-kctrl package available get -p metapackage.corp.com -n metapackage-install
-kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n metapackage-install
+#kctrl package available get -p metapackage.corp.com -n metapackage-install
+#kctrl package available get -p metapackage.corp.com/1.0.0 --values-schema -n metapackage-install
 
 #kubectl create ns hello-app
 #kubectl create ns giant-app
