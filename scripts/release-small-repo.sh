@@ -19,7 +19,7 @@ yq tmp/airgapped/.imgpkg/images.yml
 # Let's build another package repository that only contains the necessary images
 vendir sync --chdir repositories $SKIP_PROMPTS_FLAG
 echo "Release minimalist metapackage. Prompts: metapackage-repo.corp.com,taplab.azurecr.io/packaging-demo/metapackage-repo"
-kctrl package repo release --chdir repositories/1.0.0-small --version 1.0.0-small $SKIP_PROMPTS_FLAG
+kctrl package repo release --chdir repositories/1.0.0-small --version 1.0.0-small # ASK SOUMIK!!!! $SKIP_PROMPTS_FLAG
 imgpkg copy -b $MY_REG/metapackage-repo:1.0.0-small --to-repo $MY_REG-edge/metapackage-repo
 #skopeo list-tags docker://$MY_REG-edge/metapackage-repo
 imgpkg pull -b $MY_REG-edge/metapackage-repo:1.0.0-small -o tmp/edge
@@ -28,7 +28,7 @@ yq tmp/edge/.imgpkg/images.yml
 
 # Clean cluster (kn quickstart cannot start 2 concurrent clusters because use of port 80 is not configurable)
 kctrl package installed delete -i my-metapackage -n metapackage-install --yes
-kctrl package repo delete -r metapackage-repo -n metapackage-install
+kctrl package repo delete -r metapackage-repo -n metapackage-install --yes
 
 kctrl package repo add -r metapackage-repo --url $MY_REG-edge/metapackage-repo:1.0.0-small -n metapackage-install
 kctrl package available list -A

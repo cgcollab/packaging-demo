@@ -5,14 +5,14 @@ metadata:
   name: giant-app.corp.com.3.5.1
 spec:
   refName: giant-app.corp.com
-  releasedAt: "2023-07-10T22:16:48Z"
+  releasedAt: "2023-07-11T13:27:58Z"
   template:
     spec:
       deploy:
       - kapp: {}
       fetch:
       - imgpkgBundle:
-          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:c0b2e27e53954296f9d51a897a18c423422552605626245a0466919bc91b1320
+          image: taplab.azurecr.io/packaging-demo/giant-app@sha256:47a56cc5dab47ad3f74f1de78b92e7844b2b132a2720ccc13668a9b2780c977a
       template:
       - ytt:
           paths:
