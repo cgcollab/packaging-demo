@@ -19,14 +19,17 @@ echo '' > repositories/1.0.0-small/.gitkeep
 rm -rf packages/metapackage/carvel-artifacts
 rm -f packages/metapackage/package-build.yml
 rm -f packages/metapackage/package-resources.yml
+rm -rf packages/metapackage/bundle*
 
 rm -rf packages/giant-app/carvel-artifacts
 rm -f packages/giant-app/package-build.yml
 rm -f packages/giant-app/package-resources.yml
+rm -rf packages/giant-app/bundle*
 
 rm -rf packages/hello-app/carvel-artifacts
 rm -f packages/hello-app/package-build.yml
 rm -f packages/hello-app/package-resources.yml
+rm -rf packages/hello-app/bundle*
 
 rm -rf packages/hello-redis/carvel-artifacts
 rm -rf packages/hello-redis/upstream
@@ -34,5 +37,6 @@ rm -f packages/hello-redis/package-build.yml
 rm -f packages/hello-redis/package-resources.yml
 rm -f packages/hello-redis/vendir.yml
 rm -f packages/hello-redis/vendir.lock.yml
+rm -rf packages/hello-redis/bundle*
 
 tree -a --matchdirs packages --matchdirs repositories
