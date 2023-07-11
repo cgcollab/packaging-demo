@@ -5,7 +5,7 @@ metadata:
   name: giant-app.corp.com.3.5.1
 spec:
   refName: giant-app.corp.com
-  releasedAt: "2023-07-11T13:03:40Z"
+  releasedAt: "2023-07-11T13:27:58Z"
   template:
     spec:
       deploy:

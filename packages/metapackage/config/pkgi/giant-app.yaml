@@ -2,6 +2,8 @@
 #@ load("@ytt:yaml", "yaml")
 #@ load("@ytt:struct", "struct")
 
+#@  if data.values.profile != "small":
+
 #@ def collect_values(data_values):
 #@  deploymentType = "knative"
 #@  namespace = "default"
@@ -51,4 +53,4 @@ metadata:
   namespace: metapackage-install
 stringData:
   values.yml: #@ yaml.encode(collect_values(data.values))
-
+#@ end

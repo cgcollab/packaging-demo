@@ -2,7 +2,7 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - imgpkgBundle:
-      image: taplab.azurecr.io/packaging-demo/metapackage-repo@sha256:6a3fe436059de991076ea49d3a79fd00f8e3458b89617abd1ba1aaf644e11f57
+      image: taplab.azurecr.io/packaging-demo/metapackage-repo@sha256:2c72025209c2b2a0ddad43c613841e3bc59f2aa854f46fab6020b721c300570d
       tag: 1.0.0
     path: .
   path: 1.0.0-small
