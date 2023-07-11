@@ -7,15 +7,15 @@ if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 #  Can also run "vendir sync" instead of "kctrl package init..." - same effect
 
 kctrl package init --chdir packages/hello-app -y
-kctrl package release --chdir packages/hello-app --version 1.2.3 --repo-output ../../repository/1.0.0  -y
+kctrl package release --chdir packages/hello-app --version 1.2.3 --repo-output ../../repositories/1.0.0  -y
 
 kctrl package init --chdir packages/hello-redis  -y
-kctrl package release --chdir packages/hello-redis --version 2.1.0 --repo-output ../../repository/1.0.0  -y
+kctrl package release --chdir packages/hello-redis --version 2.1.0 --repo-output ../../repositories/1.0.0  -y
 
 kctrl package init --chdir packages/metapackage  -y
-kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repository/1.0.0  -y
+kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repositories/1.0.0  -y
 
-kctrl package repository release --chdir repository/1.0.0 --version 1.0.0  -y
+kctrl package repository release --chdir repositories/1.0.0 --version 1.0.0  -y
 
 # If package repo tag is the same, you can trigger immediate reconciliation (default is every 10 min)
 # Otherwise, re-install (see scripts/install-metapackage.sh)

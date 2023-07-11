@@ -11,13 +11,13 @@ if [[ "$response" =~ ^(yes|y)$ ]]; then SKIP_PROMPTS_FLAG="--yes"; else SKIP_PRO
 # giant-app - init & release package
 myDest=$MY_REG/giant-app:3.5.1 yq e -i 'select(.template.spec.containers[0].name == "giant-app").template.spec.containers[0].image = env(myDest)' packages/giant-app/config/config.yaml
 kctrl package init --chdir packages/giant-app $SKIP_PROMPTS_FLAG # Prompts: giant-app.corp.com,1,config
-kctrl package release --chdir packages/giant-app --version 3.5.1 --repo-output ../../repository/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/giant-app">
+kctrl package release --chdir packages/giant-app --version 3.5.1 --repo-output ../../repositories/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/giant-app">
 
 ##----HELLO_APP
 # hello-app - init & release package
 myDest=$MY_REG/hello-app:1.2.3 yq e -i 'select(.template.spec.containers[0].name == "hello-app").template.spec.containers[0].image = env(myDest)' packages/hello-app/config/config.yaml
 kctrl package init --chdir packages/hello-app $SKIP_PROMPTS_FLAG  # Prompts: hello-app.corp.com,1,config
-kctrl package release --chdir packages/hello-app --version 1.2.3 --repo-output ../../repository/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/hello-app">
+kctrl package release --chdir packages/hello-app --version 1.2.3 --repo-output ../../repositories/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/hello-app">
 
 #----REDIS
 # redis - init & release package
@@ -27,17 +27,17 @@ yq eval -i '.spec.template.spec.app.spec.template[0].ytt.paths += ["overlays"] |
 yq eval -i '.spec.template.spec.export[0].includePaths += ["overlays"] | .spec.template.spec.export[0].includePaths = (.spec.template.spec.export[0].includePaths | unique)' packages/hello-redis/package-build.yml
 # Run init again after yq changes, ANSWER 1 IN THE FINAL PROMPT TO AUTOMATICALLY UPDATE package-resources.yml based on changes made to package-build.yml
 kctrl package init --chdir packages/hello-redis $SKIP_PROMPTS_FLAG # Prompts: hello-redis.corp.com,4,https://github.com/cgcollab/redis,origin/main,redis-*,1
-kctrl package release --chdir packages/hello-redis --version 2.1.0 --repo-output ../../repository/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/hello-redis">
+kctrl package release --chdir packages/hello-redis --version 2.1.0 --repo-output ../../repositories/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/hello-redis">
 
 #----METAPACKAGE
 # metapackage (append metapackage version to repo-output path) - init & release package
 kctrl package init --chdir packages/metapackage $SKIP_PROMPTS_FLAG # Prompts: metapackage.corp.com,1,config
-kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repository/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/metapackage">
+kctrl package release --chdir packages/metapackage --version 1.0.0 --repo-output ../../repositories/1.0.0 $SKIP_PROMPTS_FLAG # Prompts: <YOUR REG + "/metapackage">
 
 
 #----RELEASE the REPO
 # Release repository (use same version that was used for the metapackage)
-kctrl package repository release --chdir repository/1.0.0 --version 1.0.0 $SKIP_PROMPTS_FLAG # Prompts: metapackage-repo.corp.com,<YOUR REG + "/metapackage-repo">
+kctrl package repository release --chdir repositories/1.0.0 --version 1.0.0 $SKIP_PROMPTS_FLAG # Prompts: metapackage-repo.corp.com,<YOUR REG + "/metapackage-repo">
 
 
 #----REUSE a subset of PKGS in another REPO

@@ -4,15 +4,19 @@ if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 
 rm -rf tmp/
 
-rm -rf repository/1.0.0/packages
-rm -f repository/1.0.0/package-repository.yml
-rm -f repository/1.0.0/pkgrepo-build.yml
-echo '' > repository/1.0.0/.gitkeep
+rm -rf repositories/1.0.0/packages
+rm -f repositories/1.0.0/package-repository.yml
+rm -f repositories/1.0.0/pkgrepo-build.yml
+echo '' > repositories/1.0.0/.gitkeep
 
-rm -rf repository/1.0.0-small/packages
-rm -f repository/1.0.0-small/package-repository.yml
-rm -f repository/1.0.0-small/pkgrepo-build.yml
-echo '' > repository/1.0.0-small/.gitkeep
+rm -rf repositories/1.0.0-small/packages
+rm -f repositories/1.0.0-small/package-repository.yml
+rm -f repositories/1.0.0-small/pkgrepo-build.yml
+echo '' > repositories/1.0.0-small/.gitkeep
+
+rm -rf packages/metapackage/carvel-artifacts
+rm -f packages/metapackage/package-build.yml
+rm -f packages/metapackage/package-resources.yml
 
 rm -rf packages/giant-app/carvel-artifacts
 rm -f packages/giant-app/package-build.yml

@@ -15,8 +15,8 @@ yq tmp/airgapped/.imgpkg/images.yml
 
 # The original package repository contains all the images for all the packages in the repository.
 # Let's build another package repository that only contains the necessary images
-vendir sync --chdir repository $SKIP_PROMPTS_FLAG
-kctrl package repo release --chdir repository/1.0.0-small --version 1.0.0-small $SKIP_PROMPTS_FLAG  #metapackage-repo.corp.com,taplab.azurecr.io/packaging-demo/metapackage-repo
+vendir sync --chdir repositories $SKIP_PROMPTS_FLAG
+kctrl package repo release --chdir repositories/1.0.0-small --version 1.0.0-small $SKIP_PROMPTS_FLAG  #metapackage-repo.corp.com,taplab.azurecr.io/packaging-demo/metapackage-repo
 
 #_ECHO_# What if the target location is air-gapped? imgpkg can help!
 imgpkg copy -b $MY_REG/metapackage-repo:1.0.0-small --to-repo $MY_REG-edge/metapackage-repo
