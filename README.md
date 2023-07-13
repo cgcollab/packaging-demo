@@ -29,7 +29,7 @@ To execute the workflow as a demo:
 
 ### Part I: Package Authoring
 
-Open the file [scripts/demo1-create-packages.sh] and follow the instructions at the top.
+Open the file [scripts/demo1-create-packages.sh](scripts/demo1-create-packages.sh) and follow the instructions at the top.
 ```shell
 # Pre-requisites:
 #   Run: ./scripts/00-build-apps.sh && ./scripts/00-start-state.sh
@@ -44,7 +44,7 @@ As you proceed, take note of the new files created and the new OCI images publis
 
 ### Part II: Package Consumption (and authoring of a sub-package)
 
-Open the file [scripts/demo2-consume-packages.sh] and follow the instructions at the top.
+Open the file [scripts/demo2-consume-packages.sh](scripts/demo2-consume-packages.sh) and follow the instructions at the top.
 
 ```shell
 # Pre-requisites:
