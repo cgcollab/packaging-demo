@@ -1,7 +1,7 @@
 # packaging-demo
 
 This repository illustrates the use of [Carvel](https://carvel.dev) for software packaging and distribution.
-It presents and model for organizing and grouping configuration and installation files for a number of related applications so that they can be easily delivered to and consumed in Kubernetes clusters.
+It presents a model for organizing and grouping configuration and installation files for a number of related applications so that they can be easily delivered to and consumed in Kubernetes clusters.
 
 More specifically, it covers the actions listed below.
 > Note that in some cases the command resource mentioned below will be called created directly, and sometimes it will be called created automatically by kctrl, a CLI that orchestrates the execution of some of the other CLIs in the Carvel suite.
