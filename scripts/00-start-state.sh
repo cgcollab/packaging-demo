@@ -2,6 +2,7 @@
 
 if [[ $(basename $(pwd)) == "scripts" ]]; then cd .. && echo "PWD=$(pwd)"; fi
 
+# Creating a local branch and cleaning up
 git checkout -B start-state
 
 #rm -rf tmp/
