@@ -1,10 +1,12 @@
 # packaging-demo
 
-This repository illustrates the use of [Carvel](https://carvel.dev) for software packaging and distribution.
-It presents a model for organizing and grouping configuration and installation files for a number of related applications so that they can be easily delivered to and consumed in Kubernetes clusters.
+[Carvel](https://carvel.dev) provides a set of single-purpose, composable tools to aid in building, configuring, and deploying applications to Kubernetes.
+Carvel was accepted as a [CNCF sandbox project](https://www.cncf.io/?s=carvel) in September, 2022.
 
-More specifically, it covers the actions listed below.
-> Note that in some cases the command resource mentioned below will be called created directly, and sometimes it will be called created automatically by kctrl, a CLI that orchestrates the execution of some of the other CLIs in the Carvel suite.
+This repository illustrates the use of Carvel for software packaging and distribution.
+It presents a model for managing configuration files for multi-component systems so that they can be easily distributed and easily consumed in Kubernetes clusters.
+
+This repository illustrates the following tasks:
 - Use of **kbld** to orchestrate application image build and registry push, and to record resulting image reference in a YAML file
 - Use of **ytt** to facilitate sophisticated manipulation of YAML using templating, overlays, and programming logic
 - Use of **Package CRD** to define application configuration as a package that is easy to represent and discover on Kubernetes
@@ -18,10 +20,9 @@ More specifically, it covers the actions listed below.
 - Update to configuration of installed Packages
 - Use of imgpkg to relocate images across repositories (e.g. for air-gapped environments)
 - Creation of a subset metapackage (e.g. to limit images copied across repositories for resource-strapped environments, such as edge devices)
-- Use of **kctrl** to wrap and simplify the Package authoring and installation workflow described above
+- Use of **kctrl** to orchestrate and simplify the Package authoring and installation workflow described above
 - Use of **kapp-controller** to manage Package consumption and maintenance in Kubernetes
-
-> Note: An additional Carvel tool, **kapp**, is not mentioned explicitly above, but is also employed within the workflows orchestrated by kctrl to better manage application of resources to Kubernetes and identify configuration changes between updates.
+- Use of **kapp**, employed within the workflows orchestrated by kctrl to better manage application of resources to Kubernetes and identify configuration changes between updates.
 
 ## Demo
 
