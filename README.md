@@ -33,18 +33,18 @@ To execute the workflow as a demo:
 Open the file [scripts/demo1-create-packages.sh](scripts/demo1-create-packages.sh) and follow the instructions at the top.
 ```shell
 # Pre-requisites:
-#   1. (Optional) Set the delay to simulate live typing, for example export DEMO_DELAY=0
-#       export DEMO_DELAY=0
-#   2. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
+#   1. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
 #       export MY_REG=taplab.azurecr.io/packaging-demo
-#   3. Log in to your registry using `docker login`
-#   4. Create a local branch and a clean directories
+#   2. Log in to your registry using `docker login`
+#   3. Create a local branch and a clean directories
 #     Run: ./scripts/00-start-state.sh
-#   5. Build the test applications to be packaged
+#   4. Build the test applications to be packaged
 #     Run: ./scripts/00-build-apps.sh
 ```
-To Execue the demo:
+To execute the demo:
 ```shell
+#  (Optional) Set the delay to simulate live typing (0 is no delay, 15 is the default delay)
+#  export DEMO_DELAY=0
 ./scripts/demorunner.sh scripts/demo1-create-packages.sh
 ```
 
@@ -58,11 +58,18 @@ Open the file [scripts/demo2-consume-packages.sh](scripts/demo2-consume-packages
 
 ```shell
 # Pre-requisites:
-#   Run: ./scripts/00-create-cluster.sh  
-#   Note: After the demo, you can delete the cluster using `kind delete cluster --name pkg-demo`
-#   Update value of MY_REG below, as appropriate, and log in to your registry using `docker login`
-# Execute demo:
-#   Run: ./scripts/demorunner.sh scripts/demo2-consume-packages.sh
+#   1. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
+#       export MY_REG=taplab.azurecr.io/packaging-demo
+#   2. Log in to your registry using `docker login`
+#   3. Set up a local cluster
+#      Run: ./scripts/00-create-cluster.sh  
+#      Note: After the demo, you can delete the cluster using `kind delete cluster --name knative`
+```
+To execute the demo:
+```shell
+#  (Optional) Set the delay to simulate live typing (0 is no delay, 15 is the default delay)
+#  export DEMO_DELAY=0
+./scripts/demorunner.sh scripts/demo2-consume-packages.sh
 ```
 
 When the demo begins, hit ENTER to execute the first instruction.

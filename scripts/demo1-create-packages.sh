@@ -1,19 +1,18 @@
 #_ECHO_OFF
 
 # Pre-requisites:
-#   1. (Optional) Set the delay to simulate live typing, for example export DEMO_DELAY=0
-#       export DEMO_DELAY=0
-#   2. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
+#   1. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
 #       export MY_REG=taplab.azurecr.io/packaging-demo
-#   3. Log in to your registry using `docker login`
-#   4. Create a local branch and a clean directories
+#   2. Log in to your registry using `docker login`
+#   3. Create a local branch and a clean directories
 #     Run: ./scripts/00-start-state.sh
-#   5. Build the test applications to be packaged
+#   4. Build the test applications to be packaged
 #     Run: ./scripts/00-build-apps.sh
 
-
-# To Execute Demo:
-#   Run: ./scripts/demorunner.sh scripts/demo1-create-packages.sh
+# To execute the demo:
+#  (Optional) Set the delay to simulate live typing (0 is no delay, 15 is the default delay)
+#  export DEMO_DELAY=0
+#  ./scripts/demorunner.sh scripts/demo1-create-packages.sh
 
 myDest=$MY_REG/giant-app:3.5.1 yq e -i 'select(.template.spec.containers[0].name == "giant-app").template.spec.containers[0].image = env(myDest)' packages/giant-app/config/config.yaml
 myDest=$MY_REG/hello-app:1.2.3 yq e -i 'select(.template.spec.containers[0].name == "hello-app").template.spec.containers[0].image = env(myDest)' packages/hello-app/config/config.yaml

@@ -1,14 +1,17 @@
 #_ECHO_OFF
 
 # Pre-requisites:
-#   Run: ./scripts/00-create-cluster.sh
-#   Note: After the demo, you can delete the cluster using `kind delete cluster --name pkg-demo`
-#   Update value of MY_REG below, as appropriate, and log in to your registry using `docker login`
-# Execute demo:
-#   Run: ./scripts/demorunner.sh scripts/demo2-consume-packages.sh
+#   1. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
+#       export MY_REG=taplab.azurecr.io/packaging-demo
+#   2. Log in to your registry using `docker login`
+#   3. Set up a local cluster
+#      Run: ./scripts/00-create-cluster.sh
+#      Note: After the demo, you can delete the cluster using `kind delete cluster --name knative`
 
-export MY_REG=taplab.azurecr.io/packaging-demo
-export DEMO_DELAY=0 # Set to 15, for example, to simulate live typing
+# To execute the demo:
+#  (Optional) Set the delay to simulate live typing (0 is no delay, 15 is the default delay)
+#  export DEMO_DELAY=0
+#  ./scripts/demorunner.sh scripts/demo2-consume-packages.sh
 
 # Cleanup from a previous run
 kctrl package installed delete -i my-metapackage -n metapackage-install --yes
@@ -19,9 +22,13 @@ kubectl delete ns metapackage-install
 
 clear
 #_ECHO_ON
+kubectl get ns
+
 kubectl create ns metapackage-install
 kctrl package repo add -r metapackage-repo --url $MY_REG/metapackage-repo:1.0.0 -n metapackage-install
-kctrl package available list -A # shorthand: kctrl p a ls -A
+
+clear
+#kctrl package available list -A # shorthand: kctrl p a ls -A
 kctrl package available list -A --summary=false
 
 kubectl create ns apps
