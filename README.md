@@ -33,10 +33,19 @@ To execute the workflow as a demo:
 Open the file [scripts/demo1-create-packages.sh](scripts/demo1-create-packages.sh) and follow the instructions at the top.
 ```shell
 # Pre-requisites:
-#   Run: ./scripts/00-build-apps.sh && ./scripts/00-start-state.sh
-#   Update value of MY_REG below, as appropriate, and log in to your registry using `docker login`
-# Execute demo:
-#   Run: ./scripts/demorunner.sh scripts/demo1-create-packages.sh
+#   1. (Optional) Set the delay to simulate live typing, for example export DEMO_DELAY=0
+#       export DEMO_DELAY=0
+#   2. Set the url of your registry for example: export MY_REG=taplab.azurecr.io/packaging-demo
+#       export MY_REG=taplab.azurecr.io/packaging-demo
+#   3. Log in to your registry using `docker login`
+#   4. Create a local branch and a clean directories
+#     Run: ./scripts/00-start-state.sh
+#   5. Build the test applications to be packaged
+#     Run: ./scripts/00-build-apps.sh
+```
+To Execue the demo:
+```shell
+./scripts/demorunner.sh scripts/demo1-create-packages.sh
 ```
 
 When the demo begins, hit ENTER to execute the first instruction.
