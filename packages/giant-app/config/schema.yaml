@@ -10,9 +10,9 @@ giantApp:
   #@schema/desc "Valid values: knative or core."
   deploymentType: "knative"
 
-  memRequest: "128Mi"
+  memRequest: "1280Mi"
   cpuRequest: "500m"
-  memLimit: "256Mi"
+  memLimit: "2560Mi"
   cpuLimit: "1000m"
 
   #@schema/desc "Set hostname and domain to null to omit Ingress resource"

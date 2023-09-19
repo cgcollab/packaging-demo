@@ -69,7 +69,7 @@ clear
 #----METAPACKAGE
 # metapackage (append metapackage version to repo-output path) - init & release package
 tree packages/metapackage
-yq packages/metapackage/config/pkgi/hello-redis.yaml
+yq packages/metapackage/config/pkgi/hello-app.yaml
 tree repositories/1.0.0/
 #_ECHO_# Init metapackage pkg. Prompts: metapackage.corp.com,1,config
 kctrl package init --chdir packages/metapackage
