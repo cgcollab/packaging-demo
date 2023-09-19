@@ -7,10 +7,6 @@ profile: full
 
 namespace:
   name: ""
-  #@schema/desc "Set to null to omit Namespace resource"
-  #@schema/type any=True
-  #@schema/nullable
-  owner: null
 
 giantApp:
   name: giant-app

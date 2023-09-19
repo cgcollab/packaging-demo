@@ -79,5 +79,5 @@ As you proceed, take note of the new Kubernetes resources created by the instruc
 ---
 ## TO-DO:
 - Move namespace config to child of app name key
-- Create shared namespace key that overrides app-specific setting
-- Update auto-generation of namespace resource condition to use namespace name rather than owner key
+
+

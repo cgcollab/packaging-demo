@@ -33,6 +33,8 @@ tree repositories/1.0.0/packages/giant-app.corp.com
 kctrl package release --chdir packages/giant-app --version 3.5.1 --repo-output ../../repositories/1.0.0
 tree repositories/1.0.0/packages/giant-app.corp.com
 yq repositories/1.0.0/packages/giant-app.corp.com/3.5.1.yml
+#_ECHO_# Compare with package-resources.yml before release
+diff -y packages/giant-app/package-resources.yml repositories/1.0.0/packages/giant-app.corp.com/3.5.1.yml
 
 clear
 #----HELLO-APP
