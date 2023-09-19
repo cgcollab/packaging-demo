@@ -4,10 +4,6 @@
 ---
 namespace:
   name: hello-app
-  #@schema/desc "Set to null to omit Namespace resource"
-  #@schema/type any=True
-  #@schema/nullable
-  owner: null
 
 helloApp:
   name: hello-app

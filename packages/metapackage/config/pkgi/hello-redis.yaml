@@ -3,9 +3,13 @@
 #@ load("@ytt:struct", "struct")
 
 #@ def collect_values(data_values):
-#@  namespace = "default"
+#@  namespace = "hello-app"
+#@  name = "hello-app"
 #@  if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name != "":
 #@    namespace = data.values.namespace.name
+#@  end
+#@  if hasattr(data.values, "helloApp") and hasattr(data.values.helloApp, "name") and data.values.helloApp.name != "":
+#@    name = data.values.helloApp.name
 #@  end
 #@  values = {
 #@    "helloApp": {

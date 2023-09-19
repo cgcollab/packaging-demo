@@ -35,7 +35,8 @@ template:
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hello-app
+  namespace: #@ data.values.namespace.name
+  name: #@ data.values.helloApp.name
 spec: #@ addDeploymentSpec()
 #@ else:
 ---

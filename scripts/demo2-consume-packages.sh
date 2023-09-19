@@ -40,7 +40,7 @@ kubectl get kservice -A
 yq values-medium.yaml
 kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install --values-file values-medium.yaml
 kctrl package installed list -A
-kubectl get kservice -n A
+kubectl get kservice -A
 kubectl get all -n apps
 #echo "kubectl port-forward service/hello-app 8081:8080 -n apps"
 #echo "http :8081"
@@ -52,6 +52,12 @@ imgpkg pull -b $MY_REG-airgapped/metapackage-repo:1.0.0 -o tmp/airgapped
 tree -a tmp/airgapped
 yq tmp/airgapped/.imgpkg/images.yml
 
+# Can also use kind's local registry:
+#imgpkg copy -b $MY_REG/metapackage-repo:1.0.0 --to-repo localhost:5001/metapackage-repo
+#imgpkg pull -b localhost:5001/metapackage-repo:1.0.0 -o tmp/airgapped-local
+#tree -a tmp/airgapped-local
+#yq tmp/airgapped-local/.imgpkg/images.yml
+
 #_ECHO_# What if the target location is tiny?
 #_ECHO_# Release minimalist metapackage
 yq repositories/vendir.yml
@@ -59,6 +65,7 @@ vendir sync --chdir repositories
 tree -a repositories/1.0.0-small
 #_ECHO_# Release repo. Prompts: metapackage-repo.corp.com,taplab.azurecr.io/packaging-demo/metapackage-repo
 kctrl package repo release --chdir repositories/1.0.0-small --version 1.0.0-small
+
 imgpkg copy -b $MY_REG/metapackage-repo:1.0.0-small --to-repo $MY_REG-edge/metapackage-repo
 #skopeo list-tags docker://$MY_REG-edge/metapackage-repo
 
@@ -73,3 +80,4 @@ yq values-small.yaml
 kubectl create ns apps-small
 kctrl package install -i my-metapackage -p metapackage.corp.com -v 1.0.0 -n metapackage-install --values-file values-small.yaml
 kctrl package installed list -A
+kubectl get pods -n apps-small

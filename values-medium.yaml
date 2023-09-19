@@ -5,9 +5,9 @@ namespace:
 
 helloApp:
   name: hello-app
+  deploymentType: "core" # Default for medium is core (options: knative|core)
   message: "medium happier package"
-#  deploymentType: "knative" # default for medium profile is core
 
 giantApp:
   name: giant-app
-#  deploymentType: "knative" # default for medium profile is core
+  deploymentType: "core" # Default for medium is core (options: knative|core)

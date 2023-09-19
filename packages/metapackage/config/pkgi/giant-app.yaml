@@ -6,12 +6,16 @@
 
 #@ def collect_values(data_values):
 #@  deploymentType = "knative"
-#@  namespace = "default"
+#@  namespace = "giant-app"
+#@  name = "giant-app"
 #@  if data.values.profile != "full":
 #@    deploymentType = "core"
 #@  end
 #@  if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name != "":
 #@    namespace = data.values.namespace.name
+#@  end
+#@  if hasattr(data.values, "giantApp") and hasattr(data.values.giantApp, "name") and data.values.giantApp.name != "":
+#@    name = data.values.giantApp.name
 #@  end
 #@  if hasattr(data.values, "giantApp") and hasattr(data.values.giantApp, "deploymentType") and data.values.giantApp.deploymentType != "":
 #@    deploymentType = data.values.giantApp.deploymentType

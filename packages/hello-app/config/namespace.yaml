@@ -1,8 +1,9 @@
 #@ load("@ytt:data", "data")
 
-#@ if/end data.values.namespace.owner:
+#@ if hasattr(data.values, "namespace") and hasattr(data.values.namespace, "name") and data.values.namespace.name == "hello-app":
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: #@ data.values.namespace.name
+  name: hello-app
+#@ end

@@ -5,9 +5,9 @@ namespace:
 
 helloApp:
   name: hello-app
-  deploymentType: "knative" # Valid values: knative or core
+  deploymentType: "knative" # Default for full is knative (options: knative|core)
   message: "full happy package"
   
 giantApp:
   name: giant-app
-  deploymentType: "knative" # Valid values: knative or core
+  deploymentType: "knative" # Default for full is knative (options: knative|core)

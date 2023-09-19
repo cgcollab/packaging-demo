@@ -9,6 +9,7 @@ metadata:
     #@ if data.values.giantApp.ingress.secret.certificate and data.values.giantApp.ingress.secret.privateKey:
     ingress.kubernetes.io/force-ssl-redirect: "true"
     #@ end
+  namespace: #@ data.values.namespace.name
   name: #@ data.values.giantApp.name
 spec:
   rules:
